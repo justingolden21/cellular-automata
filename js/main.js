@@ -19,6 +19,7 @@ $( ()=> {
 	$('#random-btn').click( ()=> {
 		$('#rule-num-input').val(random(0,255) ).change();
 	});
+	$('#enter-btn').click($('#rule-num-input').change);
 });
 
 function verify(num, min, max, defaultVal) {
