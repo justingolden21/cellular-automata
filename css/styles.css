@@ -25,22 +25,31 @@ a:hover {
 	text-decoration: underline;
 }
 input {
-	padding: 0.25rem;
 	font-size: 125%;
+	padding: 0.25rem;
+}
+button {
+	padding: 0.25rem;
+	margin-left: 0.5rem;
+	background-color: transparent;
+	cursor: pointer;
 	border: 2px solid black;
+}
+button:hover {
+	background-color: black;
+	color: white;
 }
 canvas, input {
 	box-shadow: 3px 3px 0px #66c;
+	border: 2px solid black;
 }
 .rule-canvas {
-	border: 2px solid black;
 	margin: 0.25rem;
 	padding: 0.25rem;
 }
 .row-canvas {
 	display: block;
 	margin: auto;
-	border: 2px solid black;
 	border-bottom: 0;
 }
 .row-canvas ~ .row-canvas {
@@ -48,4 +57,14 @@ canvas, input {
 }
 .row-canvas:last-of-type {
 	border-bottom: 2px solid black;
+}
+
+@media (max-width: 768px) {
+	canvas, input {
+		box-shadow: none;
+	}
+	.rule-canvas {
+		margin: 0.125rem;
+		padding: 0.125rem;
+	}
 }

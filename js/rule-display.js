@@ -1,5 +1,3 @@
-const SQ_SIZE = 20;
-
 function drawRuleDisplay(ruleNum) {
 	let ruleArray = getRuleArr(ruleNum);
 	$('#rule-num').html(ruleNum);
