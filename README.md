@@ -8,6 +8,8 @@ Explore all 256 rules of 1D cellular automata
 
 - Coming soon: link to a specific rule number
 
+More reading: https://mathworld.wolfram.com/ElementaryCellularAutomaton.html
+
 <hr>
 
 by Justin Golden
