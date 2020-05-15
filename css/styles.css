@@ -1,0 +1,48 @@
+* {
+	text-align: center;
+	font-family: Arial;
+}
+::-moz-selection {
+	background: #e6e6e6;
+}
+::selection {
+	background: #e6e6e6;
+}
+body {
+	
+}
+h3 {
+	letter-spacing: 2px;
+	font-size: 150%;
+	font-weight: normal;
+}
+p {
+
+}
+a {
+	color: #66c;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+input {
+	padding: 0.25rem;
+	font-size: 125%;
+}
+hr {
+	border: 1px solid black;
+}
+
+canvas {
+
+}
+.rule-canvas {
+	border: 2px solid black;
+	margin: 0.5rem;
+	padding: 0.25rem;
+}
+.row-canvas {
+	display: block;
+	margin: auto;
+}

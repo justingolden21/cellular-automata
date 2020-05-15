@@ -1,0 +1,13 @@
+basics:
+input verification
+add settings for width and height
+change square size as well
+url param for num
+share link for copying url to this rule (with checkbox next to it for copy url without a rule num? eh...)
+favicon/icon
+readme
+
+more:
+modal for info (email, fullscreen)
+animate the rows? settings for animations speed
+settings for initial conditions
