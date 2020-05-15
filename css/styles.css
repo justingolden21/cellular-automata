@@ -24,6 +24,10 @@ a {
 a:hover {
 	text-decoration: underline;
 }
+hr {
+	border: 1px solid black;
+	width: 60%;
+}
 input {
 	font-size: 125%;
 	padding: 0.25rem;
