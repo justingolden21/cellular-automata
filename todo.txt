@@ -8,6 +8,7 @@ readme
 
 more:
 modal for info (email, fullscreen)
+modal for learning about what is cellular automata etc
 animate the rows? settings for animations speed
 settings for initial conditions
 modal where you can view all 256 in a table in smaller view? print btn for modal?
