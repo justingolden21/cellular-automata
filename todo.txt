@@ -1,5 +1,4 @@
 basics:
-input verification
 add settings for width and height
 change square size as well
 url param for num
