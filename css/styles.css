@@ -2,22 +2,20 @@
 	text-align: center;
 	font-family: Arial;
 }
+*:focus {
+	outline: 2px solid #66c;
+}
 ::-moz-selection {
-	background: #e6e6e6;
+	background: lightgrey;
 }
 ::selection {
-	background: #e6e6e6;
-}
-body {
-	
+	background: lightgrey;
 }
 h3 {
 	letter-spacing: 2px;
-	font-size: 150%;
 	font-weight: normal;
-}
-p {
-
+	color: #66c;
+	font-size: 150%;
 }
 a {
 	color: #66c;
@@ -29,20 +27,25 @@ a:hover {
 input {
 	padding: 0.25rem;
 	font-size: 125%;
+	border: 2px solid black;
 }
-hr {
-	border: 1px solid black;
-}
-
-canvas {
-
+canvas, input {
+	box-shadow: 3px 3px 0px #66c;
 }
 .rule-canvas {
 	border: 2px solid black;
-	margin: 0.5rem;
+	margin: 0.25rem;
 	padding: 0.25rem;
 }
 .row-canvas {
 	display: block;
 	margin: auto;
+	border: 2px solid black;
+	border-bottom: 0;
+}
+.row-canvas ~ .row-canvas {
+	border-top: 0;
+}
+.row-canvas:last-of-type {
+	border-bottom: 2px solid black;
 }
