@@ -23,8 +23,8 @@ function getRuleSectionDisplay(arr) {
 
 	let ctx = canvas.getContext('2d');
 
-	ctx.lineWidth = 2;
-	ctx.strokeStyle = 'grey';
+	ctx.lineWidth = 1;
+	ctx.strokeStyle = '#66c';
 
 	for(let i=0; i<4; i++) {
 		ctx.fillStyle = arr[i] == 1 ? 'black' : 'white';

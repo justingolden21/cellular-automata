@@ -24,8 +24,8 @@ function getCellularRowDisplay(arr) {
 
 	let ctx = canvas.getContext('2d');
 
-	ctx.lineWidth = 2;
-	ctx.strokeStyle = 'grey';
+	ctx.lineWidth = 1;
+	ctx.strokeStyle = '#66c';
 
 	for(let i=0; i<CELLULAR_WIDTH; i++) {
 		ctx.fillStyle = arr[i] == 1 ? 'black' : 'white';
