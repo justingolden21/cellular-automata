@@ -13,3 +13,7 @@ animate the rows? settings for animations speed
 settings for initial conditions
 modal where you can view all 256 in a table in smaller view? print btn for modal?
 stroke color settings? instead of grey lines, white and black fill? at least option for white stroke
+
+scrolling down animation (pause/play, restart)
+binary input option?
+

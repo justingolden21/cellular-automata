@@ -25,15 +25,21 @@ a:hover {
 	text-decoration: underline;
 }
 hr {
+	background-color: black;
 	border: 1px solid black;
 	width: 60%;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+label {
+	margin-right: 0.5rem;
 }
 input {
 	font-size: 125%;
 	padding: 0.25rem;
 }
 button {
-	padding: 0.25rem;
+	padding: 0.5rem;
 	margin-left: 0.5rem;
 	background-color: transparent;
 	cursor: pointer;
@@ -61,6 +67,9 @@ canvas, input {
 }
 .row-canvas:last-of-type {
 	border-bottom: 2px solid black;
+}
+#rule-num {
+	font-weight: bold;
 }
 
 @media (max-width: 768px) {
