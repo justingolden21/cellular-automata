@@ -1,4 +1,4 @@
-let CELLULAR_WIDTH = 31;
+let CELLULAR_WIDTH = 35;
 let CELLULAR_HEIGHT = 20;
 
 function drawCellularDisplay(ruleNum) {

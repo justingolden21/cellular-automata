@@ -1,6 +1,4 @@
 basics:
-add settings for width and height
-change square size as well
 url param for num
 share link for copying url to this rule (with checkbox next to it for copy url without a rule num? eh...)
 favicon/icon
@@ -9,11 +7,8 @@ readme
 more:
 modal for info (email, fullscreen)
 modal for learning about what is cellular automata etc
-animate the rows? settings for animations speed
+animate the rows (moving up)? settings for animations speed (pause/play, restart)
 settings for initial conditions
 modal where you can view all 256 in a table in smaller view? print btn for modal?
-stroke color settings? instead of grey lines, white and black fill? at least option for white stroke
-
-scrolling down animation (pause/play, restart)
+stroke color settings and other visual settings?
 binary input option?
-
