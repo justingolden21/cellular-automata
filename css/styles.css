@@ -40,7 +40,18 @@ input {
 	padding: 0.25rem;
 	margin: 0.25rem;
 }
-button {
+input[type=checkbox] {
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	-o-appearance:none;
+	width: 1rem;
+	height: 1rem;
+}
+input[type=checkbox]:checked {
+	background: url(../img/check.svg) no-repeat center center;
+	background-size: 100%;
+}
+button, select {
 	padding: 0.5rem;
 	margin-left: 0.5rem;
 	background-color: transparent;
@@ -51,8 +62,10 @@ button:hover {
 	background-color: black;
 	color: white;
 }
-canvas, input {
+canvas, input:not([type=checkbox]) {
 	box-shadow: 3px 3px 0px #66c;
+}
+canvas, input {
 	border: 2px solid black;
 }
 .rule-canvas {
@@ -74,6 +87,7 @@ canvas, input {
 	font-weight: bold;
 }
 #display {
+	margin-top: 1rem;
 	margin-bottom: 1rem;
 }
 

@@ -26,23 +26,36 @@
 
 <h3>Cellular Automata Rule <span id="rule-num"></span></h3>
 <!-- <h5>explore all 256 one-dimensional cellular automata</h5> -->
-<label for="rule-num-input">Rule number</label>
+<label for="rule-num-input">Rule number <small>(0 - 255)</small></label>
 <input id="rule-num-input" type="number" min="0" max="255" value="30">
 <button id="random-btn">Random</button>
-<p><small>(between 0 and 255)</small></p>
-<hr>
 
 <div id="display"></div>
+<hr>
 
+<h3>Display</h3>
 <label for="width-input">Width</label>
 <input id="width-input" type="number" min="10" max="100" value="35">
 <label for="height-input">Height</label>
 <input id="height-input" type="number" min="10" max="100" value="20">
 <label for="size-input">Square Size</label>
 <input id="size-input" type="number" min="2" max="30" value="10">
+<label for="grid-checkbox">Grid Lines</label>
+<input id="grid-checkbox" type="checkbox" checked="true">
 
+<h3>Animation</h3>
+<button id="play-pause-btn">Play</button>
+<button id="restart-btn">Restart</button>
+<label for="speed-select">Animation Speed</label>
+<select id="speed-select">
+	<option value="500">Slow</option>
+	<option value="250">Medium</option>
+	<option value="100">Fast</option>
+</select>
+
+<h3>About</h3>
 <p>made by <a href="https://justingolden.me" target="_blank">Justin Golden</a></p>
-<small><p>also check out my <a href="https://justingolden.me/game-of-life" target="_blank">Conway's Game of Life</a> playground</p></small>
+<small><p>also check out my playground for <a href="https://justingolden.me/game-of-life" target="_blank">Conway's Game of Life</a></p></small>
 
 </body>
 </html>

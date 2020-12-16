@@ -6,9 +6,13 @@ readme
 
 more:
 modal for info (email, fullscreen)
+option to fullscreen only the canvas and play
 modal for learning about what is cellular automata etc
 animate the rows (moving up)? settings for animations speed (pause/play, restart)
-settings for initial conditions
+settings for initial conditions/starting point? random option?
 modal where you can view all 256 in a table in smaller view? print btn for modal?
 stroke color settings and other visual settings?
 binary input option?
+
+maybe:
+replace some numeric inputs with sliders

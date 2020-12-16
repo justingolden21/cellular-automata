@@ -26,12 +26,16 @@ function getRuleSectionDisplay(arr) {
 	ctx.lineWidth = 1;
 	ctx.strokeStyle = '#66c';
 
+	const DO_STROKE = $('#grid-checkbox').is(':checked');
+
 	for(let i=0; i<4; i++) {
 		ctx.fillStyle = arr[i] == 1 ? 'black' : 'white';
 		x = COORDS[i].x * SQ_SIZE;
 		y = COORDS[i].y * SQ_SIZE;
 		ctx.fillRect(x, y, SQ_SIZE, SQ_SIZE);
-		ctx.strokeRect(x, y, SQ_SIZE, SQ_SIZE);
+		if(DO_STROKE) {
+			ctx.strokeRect(x, y, SQ_SIZE, SQ_SIZE);
+		}
 	}
 
 	ctx.fillStyle = 'black';

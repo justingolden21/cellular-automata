@@ -1,4 +1,5 @@
 let SQ_SIZE;
+let animationInterval;
 
 $( ()=> {
 	// https://stackoverflow.com/a/3540295/4907950
@@ -6,22 +7,11 @@ $( ()=> {
 	$('#size-input').val(SQ_SIZE);
 
 	function redraw() {
-		let num = parseInt($('#rule-num-input').val() );
-		num = verify(num, 0, 255, 0);
-		$('#rule-num-input').val(num);
+		let num = getVal('rule-num-input');
 
-		let width = parseInt($('#width-input').val() );
-		width = verify(width, 10, 100, 35);
-		CELLULAR_WIDTH = width;
-		$('#width-input').val(width);
-		let height = parseInt($('#height-input').val() );
-		height = verify(height, 10, 100, 20);
-		CELLULAR_HEIGHT = height;
-		$('#height-input').val(height);
-		let size = parseInt($('#size-input').val() );
-		size = verify(size, 2, 30, 10);
-		SQ_SIZE = size;
-		$('#size-input').val(size);
+		CELLULAR_WIDTH = getVal('width-input');
+		CELLULAR_HEIGHT = getVal('height-input');
+		SQ_SIZE = getVal('size-input');
 
 		$('#display').html('');
 		drawRuleDisplay(num);
@@ -32,10 +22,43 @@ $( ()=> {
 	$('input').change(redraw);
 	$('#rule-num-input').select().change();
 
-	$('#random-btn').click( ()=> {
-		$('#rule-num-input').val(random(0,255) ).change();
+	$('#random-btn').click( ()=> 
+		$('#rule-num-input').val(random(0,255) ).change()
+	);
+
+	$('#play-pause-btn').click( ()=> {
+		let num = getVal('rule-num-input');
+		if($('#play-pause-btn').html().indexOf('Play') != -1) {
+			$('#play-pause-btn').html('Pause');
+			animationInterval = setInterval( ()=> nextFrame(num), $('#speed-select').val() );
+			$('#display .row-canvas').first()[0].scrollIntoView();
+		} else {
+			$('#play-pause-btn').html('Play');
+			clearInterval(animationInterval);
+		}
 	});
+
+	$('#restart-btn').click( ()=> {
+		clearInterval(animationInterval);
+		$('#play-pause-btn').html('Play');
+		redraw();
+	});
+
+	$('#speed-select').change( ()=> {
+		if($('#play-pause-btn').html().indexOf('Play') == -1) { // playing
+			$('#play-pause-btn').click().click();
+		}
+	});
+
 });
+
+function getVal(elmID) {
+	let elm = $(`#${elmID}`);
+	let val = parseInt(elm.val() );
+	val = verify(val, elm.attr('min'), elm.attr('max'), elm.attr('min') );
+	elm.val(val);
+	return val;
+}
 
 function verify(num, min, max, defaultVal) {
 	num = Math.max(Math.min(parseInt(num),max),min);

@@ -1,21 +1,34 @@
 let CELLULAR_WIDTH = 35;
 let CELLULAR_HEIGHT = 20;
 
+let nextRow;
+
 function drawCellularDisplay(ruleNum) {
 	let ruleArray = getRuleArr(ruleNum);
 
 	// init row at all 0s with a 1 in center
-	let nextRow = new Array(CELLULAR_WIDTH).fill(0);
+	nextRow = new Array(CELLULAR_WIDTH).fill(0);
 	nextRow[Math.floor(CELLULAR_WIDTH/2)] = 1;
 
+	const DO_STROKE = $('#grid-checkbox').is(':checked');
+
 	for(let i=0; i<CELLULAR_HEIGHT; i++) {
-		$('#display').append(getCellularRowDisplay(nextRow) );
+		$('#display').append(getCellularRowDisplay(nextRow, DO_STROKE) );
 		nextRow = getNextRow(nextRow, ruleArray);
 	}
 }
 
+function nextFrame(ruleNum) {
+	let ruleArray = getRuleArr(ruleNum);
+	const DO_STROKE = $('#grid-checkbox').is(':checked');
+
+	$('#display .row-canvas').first().remove();
+	$('#display').append(getCellularRowDisplay(nextRow, DO_STROKE) );
+	nextRow = getNextRow(nextRow, ruleArray);
+}
+
 // arr.length == CELLULAR_WIDTH
-function getCellularRowDisplay(arr) {
+function getCellularRowDisplay(arr, doStroke) {
 
 	let canvas = document.createElement('canvas');
 	canvas.width = SQ_SIZE*CELLULAR_WIDTH;
@@ -32,7 +45,9 @@ function getCellularRowDisplay(arr) {
 		x = i * SQ_SIZE;
 		y = 0;
 		ctx.fillRect(x, y, SQ_SIZE, SQ_SIZE);
-		ctx.strokeRect(x, y, SQ_SIZE, SQ_SIZE);
+		if(doStroke) {
+			ctx.strokeRect(x, y, SQ_SIZE, SQ_SIZE);
+		}
 	}
 
 	return canvas;
