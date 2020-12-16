@@ -1,4 +1,4 @@
-# Cellular Automata Rules <img src="img/rule39.png" width="64px">
+# Cellular Automata <img src="img/rule39.png" width="40px">
 
 https://justingolden.me/cellular-automata/
 
