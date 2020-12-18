@@ -13,6 +13,10 @@ settings for initial conditions/starting point? random option?
 modal where you can view all 256 in a table in smaller view? print btn for modal?
 stroke color settings and other visual settings?
 binary input option?
+display which classification the CA is
+
+bonus points:
+display a logic ciruit, using a k-map, for the cellular automata
 
 maybe:
 replace some numeric inputs with sliders

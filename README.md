@@ -16,6 +16,22 @@ More reading: https://mathworld.wolfram.com/ElementaryCellularAutomaton.html
 
 <hr>
 
+Links for nerds:
+
+- https://plato.stanford.edu/entries/cellular-automata/
+
+- https://towardsdatascience.com/algorithmic-beauty-an-introduction-to-cellular-automata-f53179b3cf8f
+
+- https://www.sciencedirect.com/topics/computer-science/cellular-automata
+
+- https://writings.stephenwolfram.com/2017/06/oh-my-gosh-its-covered-in-rule-30s/
+
+- https://en.wikipedia.org/wiki/Cellular_automaton
+
+- https://natureofcode.com/book/chapter-7-cellular-automata/
+
+<hr>
+
 by Justin Golden
 
 https://justingolden.me
