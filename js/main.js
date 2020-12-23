@@ -9,12 +9,41 @@ $( ()=> {
 	// get url param
 	let url = new URL(window.location.href);
 	let ca = url.searchParams.get('ca');
-	$('#rule-num-input').val(ca || 30);
+	ca = verify(ca, 0, 255, -1);
+	if(ca != -1) {
+		$('#rule-num-input').val(ca);
+	}
+
+	$('#copied-span').css('display', 'none');
+	let copiedTimeout;
+
+	$('#copy-link-btn').click( ()=> {
+		let tmp = $('<input type="text">').appendTo(document.body);
+		tmp.val(window.location.href);
+		tmp.select();
+		document.execCommand('copy');
+		tmp.remove();
+
+		$('#copied-span').css('display', '');
+		clearTimeout(copiedTimeout);
+		copiedTimeout = setTimeout( ()=> $('#copied-span').css('display', 'none'), 2500);
+	});
+	$('#link-btn').click( ()=> {
+		if($('#link-btn').html().indexOf('Unlink Rule Number') != -1) {
+			$('#link-btn').html('Link Rule Number');
+			window.history.replaceState(null, null, window.location.pathname); // remove url param
+		} else {
+			$('#link-btn').html('Unlink Rule Number');
+			history.replaceState({}, '', '?ca=' + getVal('rule-num-input') ); // set url param
+		}
+	});
 
 	function redraw() {
 		let num = getVal('rule-num-input');
 
-		history.replaceState({}, '', '?ca=' + num); // set url param
+		if($('#link-btn').html().indexOf('Unlink Rule Number') != -1) {
+			history.replaceState({}, '', '?ca=' + num); // set url param
+		}
 
 		CELLULAR_WIDTH = getVal('width-input');
 		CELLULAR_HEIGHT = getVal('height-input');

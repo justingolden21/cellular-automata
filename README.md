@@ -10,7 +10,7 @@ Explore all 256 rules of 1D cellular automata
 
 - Watch the automata animate before your eyes
 
-- Coming soon: link to a specific rule number
+- Link to a specific rule number for easy sharing : )
 
 More reading: https://mathworld.wolfram.com/ElementaryCellularAutomaton.html
 

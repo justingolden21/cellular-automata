@@ -1,10 +1,5 @@
-basics:
-url param for num
-share link for copying url to this rule (with checkbox next to it for copy url without a rule num? eh...)
-favicon/icon
-readme
-
-more:
+future:
+use flex for multiole sections on larger screens?
 modal for info (email, fullscreen)
 option to fullscreen only the canvas and play
 modal for learning about what is cellular automata etc
