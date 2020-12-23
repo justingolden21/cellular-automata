@@ -23,6 +23,9 @@ function getRuleSectionDisplay(arr) {
 
 	let ctx = canvas.getContext('2d');
 
+	ctx.fillStyle = 'white';
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+
 	ctx.lineWidth = 1;
 	ctx.strokeStyle = '#66c';
 

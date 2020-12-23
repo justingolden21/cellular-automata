@@ -1,0 +1,28 @@
+html {
+	background-color: black;
+	color: white;
+}
+hr {
+	background-color: white;
+	border-color: white;
+}
+input[type=checkbox]:checked {
+	background: url(../img/check-white.svg) no-repeat center center;
+}
+button, select {
+	color: white;
+	border-color: white;
+}
+button:hover {
+	background-color: white;
+	color: black;
+}
+input[type=checkbox] {
+	border-color: white;
+}
+option {
+	color: black;
+}
+canvas {
+	background-color: white;
+}

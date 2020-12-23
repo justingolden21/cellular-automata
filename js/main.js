@@ -86,6 +86,10 @@ $( ()=> {
 		}
 	});
 
+	$('#dark-checkbox').change( ()=> {
+		$('#dark-css').attr('href', $('#dark-checkbox').is(':checked') ? 'css/dark.css' : '');
+	});
+
 });
 
 function getVal(elmID) {
