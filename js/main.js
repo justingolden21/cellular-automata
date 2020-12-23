@@ -6,8 +6,15 @@ $( ()=> {
 	SQ_SIZE = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? 10: 20;
 	$('#size-input').val(SQ_SIZE);
 
+	// get url param
+	let url = new URL(window.location.href);
+	let ca = url.searchParams.get('ca');
+	$('#rule-num-input').val(ca || 30);
+
 	function redraw() {
 		let num = getVal('rule-num-input');
+
+		history.replaceState({}, '', '?ca=' + num); // set url param
 
 		CELLULAR_WIDTH = getVal('width-input');
 		CELLULAR_HEIGHT = getVal('height-input');
