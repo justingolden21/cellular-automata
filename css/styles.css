@@ -63,7 +63,7 @@ button:hover {
 	color: white;
 }
 canvas, input:not([type=checkbox]) {
-	box-shadow: 3px 3px 0px #66c;
+	box-shadow: 2px 2px 0px #66c;
 }
 canvas, input {
 	border: 2px solid black;
