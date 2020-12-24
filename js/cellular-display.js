@@ -88,9 +88,9 @@ function getCellularRowDisplay(arr, doStroke) {
 function getNextRow(currRow, ruleArr) {
 	let newRow = [];
 	for(let i=0; i<CELLULAR_WIDTH; i++) {
-		let a = i==0? currRow[CELLULAR_WIDTH-1] : currRow[i-1];
+		let a = i==0? 0 /*currRow[CELLULAR_WIDTH-1]*/ : currRow[i-1];
 		let b = currRow[i];
-		let c = i==CELLULAR_WIDTH-1? currRow[0] : currRow[i+1];
+		let c = i==CELLULAR_WIDTH-1? 0 /*currRow[0]*/ : currRow[i+1];
 		newRow.push(getCell(a, b, c, ruleArr) );
 	}
 	return newRow;
