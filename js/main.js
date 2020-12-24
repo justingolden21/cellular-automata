@@ -45,8 +45,9 @@ $( ()=> {
 			history.replaceState({}, '', '?ca=' + num); // set url param
 		}
 
-		CELLULAR_WIDTH = getVal('width-input');
-		CELLULAR_HEIGHT = getVal('height-input');
+		const STEPS = getVal('steps-input');
+		CELLULAR_WIDTH = STEPS*2+1;
+		CELLULAR_HEIGHT = STEPS+1;
 		SQ_SIZE = getVal('size-input');
 
 		$('#display').html('');
