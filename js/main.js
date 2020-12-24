@@ -108,6 +108,13 @@ $( ()=> {
 		$('#background-select').change();
 	});
 
+	$('#download-img-btn').click( ()=> {
+		let link = document.createElement('a');
+		link.download = `Rule ${$('#rule-num').html()}.png`;
+		link.href = document.getElementsByClassName('row-canvas')[0].toDataURL();
+		link.click();
+	});
+
 });
 
 function getVal(elmID) {

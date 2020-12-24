@@ -4,7 +4,7 @@ future:
 	organize js
 	use flex for multiple sections on larger screens?
 	modal for info (email, fullscreen)
-	optimize by making it one single canvas instead of one per row, add option to copy/download img
+	optimize by making it one single canvas instead of one per row, add option to copy/download/print img
 option to fullscreen only the canvas and play
 modal for learning about what is cellular automata etc
 animate the rows (moving up)? settings for animations speed (pause/play, restart)
