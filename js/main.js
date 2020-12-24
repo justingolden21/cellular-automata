@@ -3,7 +3,7 @@ let animationInterval;
 
 $( ()=> {
 	// https://stackoverflow.com/a/3540295/4907950
-	SQ_SIZE = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? 10: 20;
+	SQ_SIZE = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? 5: 10;
 	$('#size-input').val(SQ_SIZE);
 
 	// get url param
@@ -39,6 +39,10 @@ $( ()=> {
 	});
 
 	function redraw() {
+		if($('#play-pause-btn').html().indexOf('Play') == -1) {
+			$('#play-pause-btn').click();
+		}
+
 		let num = getVal('rule-num-input');
 
 		if($('#link-btn').html().indexOf('Unlink Rule Number') != -1) {
@@ -67,8 +71,13 @@ $( ()=> {
 		let num = getVal('rule-num-input');
 		if($('#play-pause-btn').html().indexOf('Play') != -1) {
 			$('#play-pause-btn').html('Pause');
+
 			animationInterval = setInterval( ()=> nextFrame(num), $('#speed-select').val() );
 			$('#display .row-canvas').first()[0].scrollIntoView();
+
+			// prepare for animation
+			$('#display .row-canvas').remove();
+			drawCellularDisplay(num, true);
 		} else {
 			$('#play-pause-btn').html('Play');
 			clearInterval(animationInterval);

@@ -3,7 +3,7 @@ let CELLULAR_HEIGHT;
 
 let nextRow;
 
-function drawCellularDisplay(ruleNum) {
+function drawCellularDisplay(ruleNum, individualRows=false) {
 	let ruleArray = getRuleArr(ruleNum);
 
 	// init row at all 0s with a 1 in center
@@ -12,9 +12,24 @@ function drawCellularDisplay(ruleNum) {
 
 	const DO_STROKE = $('#grid-checkbox').is(':checked');
 
-	for(let i=0; i<CELLULAR_HEIGHT; i++) {
-		$('#display').append(getCellularRowDisplay(nextRow, DO_STROKE) );
-		nextRow = getNextRow(nextRow, ruleArray);
+
+	if(!individualRows) {
+
+		let canvas = document.createElement('canvas');
+		canvas.width = SQ_SIZE*CELLULAR_WIDTH;
+		canvas.height = SQ_SIZE*CELLULAR_HEIGHT;
+		canvas.classList = 'row-canvas';
+
+		for(let i=0; i<CELLULAR_HEIGHT; i++) {
+			addRowToCanvas(canvas, i, nextRow, DO_STROKE);
+			nextRow = getNextRow(nextRow, ruleArray);
+		}
+		$('#display').append(canvas);
+	} else {
+		for(let i=0; i<CELLULAR_HEIGHT; i++) {		
+			$('#display').append(getCellularRowDisplay(nextRow, DO_STROKE) );
+			nextRow = getNextRow(nextRow, ruleArray);
+		}
 	}
 }
 
@@ -25,6 +40,23 @@ function nextFrame(ruleNum) {
 	$('#display .row-canvas').first().remove();
 	$('#display').append(getCellularRowDisplay(nextRow, DO_STROKE) );
 	nextRow = getNextRow(nextRow, ruleArray);
+}
+
+function addRowToCanvas(canvas, rowNum, arr, doStroke) {
+	let ctx = canvas.getContext('2d');
+
+	ctx.lineWidth = 1;
+	ctx.strokeStyle = '#66c';
+
+	for(let i=0; i<CELLULAR_WIDTH; i++) {
+		ctx.fillStyle = arr[i] == 1 ? 'black' : 'white';
+		x = i * SQ_SIZE;
+		y = rowNum * SQ_SIZE;
+		ctx.fillRect(x, y, SQ_SIZE, SQ_SIZE);
+		if(doStroke) {
+			ctx.strokeRect(x, y, SQ_SIZE, SQ_SIZE);
+		}
+	}	
 }
 
 // arr.length == CELLULAR_WIDTH
