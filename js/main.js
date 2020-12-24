@@ -60,7 +60,11 @@ $( ()=> {
 		document.title = `Cellular Automata - Rule ${num}`;
 	}
 
-	$('input').change(redraw);
+	$('input').change( ()=> {
+		$('#loading-div').show();
+		setTimeout(redraw, 10);
+		setTimeout( ()=>$('#loading-div').hide(), 10);
+	});
 	$('#rule-num-input').select().change();
 
 	$('#random-btn').click( ()=> 
@@ -77,7 +81,10 @@ $( ()=> {
 
 			// prepare for animation
 			$('#display .row-canvas').remove();
-			drawCellularDisplay(num, true);
+			
+			$('#loading-div').show();
+			setTimeout( ()=> drawCellularDisplay(num, true), 10);
+			setTimeout( ()=>$('#loading-div').hide(), 10);
 		} else {
 			$('#play-pause-btn').html('Play');
 			clearInterval(animationInterval);
