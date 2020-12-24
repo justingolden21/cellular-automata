@@ -12,6 +12,7 @@ input[type=checkbox]:checked {
 button, select {
 	color: white;
 	border-color: white;
+	background-color: black;
 }
 button:hover {
 	background-color: white;
@@ -20,8 +21,9 @@ button:hover {
 input[type=checkbox] {
 	border-color: white;
 }
-option {
+input {
 	color: black;
+	background-color: white
 }
 canvas {
 	background-color: white;

@@ -1,10 +1,14 @@
 future:
-use flex for multiole sections on larger screens?
-modal for info (email, fullscreen)
+	add credits to readme
+	consider using heroicons
+	organize js
+	use flex for multiple sections on larger screens?
+	modal for info (email, fullscreen)
+	optimize by making it one single canvas instead of one per row, add option to copy/download img
 option to fullscreen only the canvas and play
 modal for learning about what is cellular automata etc
 animate the rows (moving up)? settings for animations speed (pause/play, restart)
-settings for initial conditions/starting point? random option?
+	settings for initial conditions/starting point? random option?
 modal where you can view all 256 in a table in smaller view? print btn for modal?
 stroke color settings and other visual settings?
 binary input option?
@@ -15,3 +19,4 @@ display a logic ciruit, using a k-map, for the cellular automata
 
 maybe:
 replace some numeric inputs with sliders
+option to view/copy/download raw 1s and 0s for output, columns and center row

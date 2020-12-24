@@ -88,6 +88,7 @@ $( ()=> {
 
 	$('#dark-checkbox').change( ()=> {
 		$('#dark-css').attr('href', $('#dark-checkbox').is(':checked') ? 'css/dark.css' : '');
+		$('#background-select').change();
 	});
 
 });
