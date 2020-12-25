@@ -60,7 +60,7 @@ $( ()=> {
 		document.title = `Cellular Automata - Rule ${num}`;
 	}
 
-	$('input').change( ()=> {
+	$('input, #edge-select').change( ()=> {
 		$('#loading-div').show();
 		setTimeout(redraw, 10);
 		setTimeout( ()=>$('#loading-div').hide(), 10);
