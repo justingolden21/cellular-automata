@@ -2,27 +2,26 @@
 <html lang="en">
 <head>
 
-<title>Cellular Automata Rules</title>
+<title>Cellular Automata</title>
 <meta charset="utf-8">
-<meta name="title=" content="Cellular Automata Rules">
+<meta name="title=" content="Cellular Automata">
 <meta name="robots" content="index, follow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Explore all 256 rules of 1D cellular automata">
 <meta name="keywords" content="cellular automata, cellular automata rules, 1d cellular automata, 1d cellular automata rules, cellular automata 1d, cellular automata 1d rules">
-<!-- <meta name="theme-color" content="hsl(0, 0%, 90%)">
-<meta name="msapplication-navbutton-color" content="hsl(0, 0%, 90%)">
-<meta name="apple-mobile-web-app-status-bar-style" content="hsl(0, 0%, 90%)">-->
 <link rel="shortcut icon" href="img/rule39.png">
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/loader.css">
+<link rel="stylesheet" href="css/modal.css">
 <link id="dark-css" rel="stylesheet" href="">
 <script src="js/main.js"></script>
 <script src="js/rule-display.js"></script>
 <script src="js/cellular-display.js"></script>
 <script src="js/pattern.js"></script>
+<script src="js/modal.js"></script>
 
 </head>
 <body>
@@ -45,8 +44,10 @@
 <input id="grid-checkbox" type="checkbox">
 <label for="dark-checkbox">Dark Mode</label>
 <input id="dark-checkbox" type="checkbox">
+<br>
 <label for="background-select">Background</label>
 <select id="background-select"></select>
+<button id="fullscreen-canvas-btn">Fullscreen Canvas</button>
 <br>
 <small>Please note that more than 200 steps will take some time to process</small>
 
@@ -66,12 +67,20 @@
 <button id="link-btn">Unlink Rule Number</button>
 <button id="download-img-btn">Download Image</button>
 
-<h3>About</h3>
-<p>made by <a href="https://justingolden.me" target="_blank">Justin Golden</a></p>
-<small><p>also check out my playground for <a href="https://justingolden.me/game-of-life" target="_blank">Conway's Game of Life</a></p></small>
-<small><p>or check out my <a href="http://justingolden.me/map-generator/" target="_blank">map generator</a> made by using 2d cellular automata</p></small>
-<br>
-<small><p>patterns from <a href="https://www.heropatterns.com" target="_blank">heropatterns.com</a></p></small>
+<button id="modal-btn">About</button>
+<div id="modal" class="modal">
+	<div class="modal-content">
+		<button class="close">&times;</button>
+		<h3>About</h3>
+		<hr>
+		<p>made by <a href="https://justingolden.me" target="_blank">Justin Golden</a></p>
+		<small><p>also check out my playground for <a href="https://justingolden.me/game-of-life" target="_blank">Conway's Game of Life</a></p></small>
+		<small><p>or check out my <a href="http://justingolden.me/map-generator/" target="_blank">map generator</a> made by using 2d cellular automata</p></small>
+		<br>
+		<small><p><a href="https://github.com/justingolden21/cellular-automata" target="_blank">GitHub repository</a></p></small>
+		<small><p>patterns from <a href="https://www.heropatterns.com" target="_blank">heropatterns.com</a></p></small>
+	</div>
+</div>
 
 <div id="loading-div">
 	<div class="loader"></div>

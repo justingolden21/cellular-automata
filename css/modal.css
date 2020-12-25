@@ -1,0 +1,39 @@
+.modal {
+	display: none;
+	position: fixed;
+	padding-top: 4rem;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: #00000099;
+}
+
+.modal-content {
+	background-color: white;
+	border: 2px solid black;
+	margin: auto;
+	padding: 1rem;
+	width: 75%;
+
+	position: relative;
+	animation: animateTop 0.25s linear;
+}
+
+.close {
+	float: right;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+@keyframes animateTop {
+	from {top: -240px; opacity: 0}
+	to {top: 0; opacity: 1}
+}
+
+#modal-btn {
+	position: absolute;
+	top: 0;
+	left: 0;
+}

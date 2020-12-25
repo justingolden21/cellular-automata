@@ -16,6 +16,8 @@ const COORDS = [
 ];
 
 function getRuleSectionDisplay(arr) {
+	const SQ_SIZE = 10;
+
 	let canvas = document.createElement('canvas');
 	canvas.width = SQ_SIZE*3;
 	canvas.height = SQ_SIZE*3;

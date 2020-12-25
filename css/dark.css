@@ -28,3 +28,7 @@ input {
 canvas {
 	background-color: white;
 }
+.modal-content {
+	background-color: black;
+	border-color: white;
+}

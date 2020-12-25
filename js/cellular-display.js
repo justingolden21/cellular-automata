@@ -61,26 +61,12 @@ function addRowToCanvas(canvas, rowNum, arr, doStroke) {
 
 // arr.length == CELLULAR_WIDTH
 function getCellularRowDisplay(arr, doStroke) {
-
 	let canvas = document.createElement('canvas');
 	canvas.width = SQ_SIZE*CELLULAR_WIDTH;
 	canvas.height = SQ_SIZE*1;
 	canvas.classList = 'row-canvas';
 
-	let ctx = canvas.getContext('2d');
-
-	ctx.lineWidth = 1;
-	ctx.strokeStyle = '#66c';
-
-	for(let i=0; i<CELLULAR_WIDTH; i++) {
-		ctx.fillStyle = arr[i] == 1 ? 'black' : 'white';
-		x = i * SQ_SIZE;
-		y = 0;
-		ctx.fillRect(x, y, SQ_SIZE, SQ_SIZE);
-		if(doStroke) {
-			ctx.strokeRect(x, y, SQ_SIZE, SQ_SIZE);
-		}
-	}
+	addRowToCanvas(canvas, 0, arr, doStroke);
 
 	return canvas;
 }

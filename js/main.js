@@ -115,6 +115,17 @@ $( ()=> {
 		link.click();
 	});
 
+	$('#fullscreen-canvas-btn').click( ()=> {
+		let elm = document.getElementsByClassName('row-canvas')[0];
+		if(elm.requestFullscreen) {
+			elm.requestFullscreen();
+		} else if(elm.webkitRequestFullscreen) {
+			elm.webkitRequestFullscreen();
+		} else if(elm.msRequestFullscreen) {
+			elm.msRequestFullscreen();
+		}
+	});
+
 });
 
 function getVal(elmID) {
