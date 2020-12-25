@@ -106,4 +106,8 @@ canvas, input, button, select {
 		margin: 0.125rem;
 		padding: 0.125rem;
 	}
+	input, button, select {
+		display: block;
+		margin: 0.5rem auto;
+	}
 }
