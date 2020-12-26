@@ -13,10 +13,10 @@ body {
 	outline: 2px solid #66c;
 }
 ::-moz-selection {
-	background: lightgrey;
+	background: #eee;
 }
 ::selection {
-	background: lightgrey;
+	background: #eee;
 }
 h3 {
 	letter-spacing: 2px;
