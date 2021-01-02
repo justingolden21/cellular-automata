@@ -54,6 +54,11 @@ $( ()=> {
 		CELLULAR_HEIGHT = STEPS+1;
 		SQ_SIZE = getVal('size-input');
 
+		if(SQ_SIZE==1 && $('#grid-checkbox').is(':checked') ) {
+			SQ_SIZE = 2;
+			$('#size-input').val(2);
+		}
+
 		$('#display').html('');
 		drawRuleDisplay(num);
 		drawCellularDisplay(num);
