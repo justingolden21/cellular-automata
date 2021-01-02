@@ -4,6 +4,7 @@ let CELLULAR_HEIGHT;
 let nextRow;
 
 function drawCellularDisplay(ruleNum, individualRows=false) {
+	console.time('cellular draw');
 	let ruleArray = getRuleArr(ruleNum);
 
 	// init row at all 0s with a 1 in center
@@ -11,7 +12,7 @@ function drawCellularDisplay(ruleNum, individualRows=false) {
 	nextRow[Math.floor(CELLULAR_WIDTH/2)] = 1;
 
 	const DO_STROKE = $('#grid-checkbox').is(':checked');
-
+	let wrapMode = $('#edge-select').val();
 
 	if(!individualRows) {
 
@@ -20,17 +21,22 @@ function drawCellularDisplay(ruleNum, individualRows=false) {
 		canvas.height = SQ_SIZE*CELLULAR_HEIGHT;
 		canvas.classList = 'row-canvas';
 
+		let ctx = canvas.getContext('2d');
+		ctx.lineWidth = 1;
+		ctx.strokeStyle = '#66c';
+
 		for(let i=0; i<CELLULAR_HEIGHT; i++) {
-			addRowToCanvas(canvas, i, nextRow, DO_STROKE);
-			nextRow = getNextRow(nextRow, ruleArray);
+			addRowToCanvas(ctx, i, nextRow, DO_STROKE);
+			nextRow = getNextRow(nextRow, ruleArray, wrapMode);
 		}
 		$('#display').append(canvas);
 	} else {
 		for(let i=0; i<CELLULAR_HEIGHT; i++) {		
 			$('#display').append(getCellularRowDisplay(nextRow, DO_STROKE) );
-			nextRow = getNextRow(nextRow, ruleArray);
+			nextRow = getNextRow(nextRow, ruleArray, wrapMode);
 		}
 	}
+	console.timeEnd('cellular draw');
 }
 
 function nextFrame(ruleNum) {
@@ -39,15 +45,11 @@ function nextFrame(ruleNum) {
 
 	$('#display .row-canvas').first().remove();
 	$('#display').append(getCellularRowDisplay(nextRow, DO_STROKE) );
-	nextRow = getNextRow(nextRow, ruleArray);
+	let wrapMode = $('#edge-select').val();
+	nextRow = getNextRow(nextRow, ruleArray, wrapMode);
 }
 
-function addRowToCanvas(canvas, rowNum, arr, doStroke) {
-	let ctx = canvas.getContext('2d');
-
-	ctx.lineWidth = 1;
-	ctx.strokeStyle = '#66c';
-
+function addRowToCanvas(ctx, rowNum, arr, doStroke) {
 	for(let i=0; i<CELLULAR_WIDTH; i++) {
 		ctx.fillStyle = arr[i] == 1 ? 'black' : 'white';
 		x = i * SQ_SIZE;
@@ -66,13 +68,16 @@ function getCellularRowDisplay(arr, doStroke) {
 	canvas.height = SQ_SIZE*1;
 	canvas.classList = 'row-canvas';
 
-	addRowToCanvas(canvas, 0, arr, doStroke);
+	let ctx = canvas.getContext('2d');
+	ctx.lineWidth = 1;
+	ctx.strokeStyle = '#66c';
+
+	addRowToCanvas(ctx, 0, arr, doStroke);
 
 	return canvas;
 }
 
-function getNextRow(currRow, ruleArr) {
-	let wrapMode = $('#edge-select').val();
+function getNextRow(currRow, ruleArr, wrapMode) {
 	let newRow = [];
 	for(let i=0; i<CELLULAR_WIDTH; i++) {
 		let a = i!=0 ? currRow[i-1] : wrapMode=='wrap' ? currRow[CELLULAR_WIDTH-1] : wrapMode=='black' ? 1 : 0;
