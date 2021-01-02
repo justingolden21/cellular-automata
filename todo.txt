@@ -1,4 +1,5 @@
 future:
+	store settings in url params (or cookies, or download txt file options)
 	add credits to readme
 	consider using heroicons
 	organize js

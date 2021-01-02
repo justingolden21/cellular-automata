@@ -36,6 +36,16 @@ function drawCellularDisplay(ruleNum, individualRows=false) {
 			nextRow = getNextRow(nextRow, ruleArray, wrapMode);
 		}
 	}
+
+	console.timeLog('cellular draw');
+
+	let rows = getRawData(ruleArray);
+	let tmpTxt = '';
+	for(row of rows) {
+		tmpTxt += row + '\n';
+	}
+	$('#raw-data').val(tmpTxt);
+
 	console.timeEnd('cellular draw');
 }
 
@@ -91,4 +101,20 @@ function getNextRow(currRow, ruleArr, wrapMode) {
 function getCell(a, b, c, ruleArr) {
 	let idx = parseInt([a, b, c].join(''), 2);
 	return ruleArr[ruleArr.length - idx - 1];
+}
+
+function getRawData(ruleArray) {
+	let rows = [];
+	// init row at all 0s with a 1 in center
+	nextRow = new Array(CELLULAR_WIDTH).fill(0);
+	nextRow[Math.floor(CELLULAR_WIDTH/2)] = 1;
+	rows.push(nextRow);
+
+	let wrapMode = $('#edge-select').val();
+
+	for(let i=0; i<CELLULAR_HEIGHT; i++) {
+		nextRow = getNextRow(nextRow, ruleArray, wrapMode);
+		rows.push(nextRow);
+	}
+	return rows;
 }

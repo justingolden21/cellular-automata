@@ -47,6 +47,11 @@ input {
 	padding: 0.25rem;
 	margin: 0.25rem;
 }
+textarea {
+	font-size: 75%;
+	padding: 0.25rem;
+	margin: 0.25rem;	
+}
 input[type=checkbox] {
 	-moz-appearance:none;
 	-webkit-appearance:none;
@@ -64,14 +69,17 @@ button, select {
 	background-color: transparent;
 	cursor: pointer;
 }
+button.small {
+	padding: 0.25rem;
+}
 button:hover {
 	background-color: black;
 	color: white;
 }
-canvas, input:not([type=checkbox]) {
+canvas, input:not([type=checkbox]), textarea {
 	box-shadow: 2px 2px 0px #66c;
 }
-canvas, input, button, select {
+canvas, input, button, select, textarea {
 	background-color: white;
 	border: 2px solid black;
 }
@@ -97,16 +105,26 @@ canvas, input, button, select {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 }
+#raw-data {
+	margin: 1rem 0.25rem;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: Courier New;
+	display: none;
+}
+#copy-raw-data-btn, #download-raw-data-btn {
+	display: none;
+}
 
 @media (max-width: 768px) {
-	canvas, input {
+	canvas, input, textarea {
 		box-shadow: none;
 	}
 	.rule-canvas {
 		margin: 0.125rem;
 		padding: 0.125rem;
 	}
-	input, button, select {
+	input, button, select, textarea {
 		display: block;
 		margin: 0.5rem auto;
 	}

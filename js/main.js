@@ -120,6 +120,29 @@ $( ()=> {
 		link.click();
 	});
 
+	$('#raw-data-btn').click( ()=> {
+		if($('#raw-data-btn').html().indexOf('Show') != -1) {
+			$('#raw-data-btn').html('Hide Raw Data');
+			$('#raw-data').css('display', 'block');
+			$('#raw-data')[0].scrollIntoView();
+			$('#copy-raw-data-btn').css('display', 'inline-block');
+			$('#download-raw-data-btn').css('display', 'inline-block');
+		} else {
+			$('#raw-data-btn').html('Show Raw Data');
+			$('#raw-data').css('display', 'none');
+			$('#copy-raw-data-btn').css('display', 'none');
+			$('#download-raw-data-btn').css('display', 'none');
+		}
+	});
+
+	$('#copy-raw-data-btn').click( ()=> {
+		$('#raw-data').select();
+		document.execCommand('copy');
+	});
+	$('#download-raw-data-btn').click( ()=> {
+		downloadFile($('#raw-data').val(), `rule ${$('#rule-num').html()}`);
+	});
+
 	$('#fullscreen-canvas-btn').click( ()=> {
 		let elm = document.getElementsByClassName('row-canvas')[0];
 		if(elm.requestFullscreen) {
@@ -148,3 +171,18 @@ function verify(num, min, max, defaultVal) {
 
 // random int between min and max (inclusive)
 const random = (min, max) => Math.floor(Math.random() * (max - min + 1) ) + min;
+
+function downloadFile(str, fileName) {
+	let file;
+	let properties = {type: 'plain/text'};
+	try {
+		file = new File([str], fileName + '.txt', properties);
+	} catch(err) {
+		file = new Blob([str], properties);
+	}
+
+	let link = document.createElement('a');
+	link.download = fileName + '.txt';
+	link.href = URL.createObjectURL(file);
+	link.click();
+}

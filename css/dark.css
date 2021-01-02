@@ -21,10 +21,6 @@ button:hover {
 input[type=checkbox] {
 	border-color: white;
 }
-input {
-	color: black;
-	background-color: white
-}
 canvas {
 	background-color: white;
 }
