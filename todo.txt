@@ -11,8 +11,7 @@ modal for learning about what is cellular automata etc
 	settings for initial conditions/starting point? random option?
 modal where you can view all 256 in a table in smaller view? print btn for modal?
 stroke color settings and other visual settings?
-binary input option?
-display which classification the CA is
+binary input option? maybe in a modal. click the canvas to flip the bit? maybe a checkbox...
 store settings in cookies option? reset settings btn?
 
 bonus points:

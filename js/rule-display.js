@@ -7,7 +7,19 @@ function drawRuleDisplay(ruleNum) {
 	}
 	$('#display').append(`<p>${ruleArray.join('')}<sub>2</sub></p>`);
 	let classification = getRuleClassification(ruleNum);
-	$('#display').append(`<p>Class ${classification} &mdash; ${getClassificationDescription(classification)}</p><hr>`);
+	$('#display').append(`<p>Class ${classification} &mdash; ${getClassificationDescription(classification)}</p>`);
+
+	// equivalent rules
+	let equivalentRules = getEquivalentRules(ruleNum);
+	if(equivalentRules.length > 0) {
+		let ruleLinks = '';
+		for(let equRule of equivalentRules) {
+			ruleLinks += `<a onclick="$('#rule-num-input').val(${equRule}).change()">${equRule}</a>, `;
+		}
+		ruleLinks = ruleLinks.substring(0, ruleLinks.length - 2); // remove last comma
+		$('#display').append(`<p>Equivilant to rule${equivalentRules.length>1?'s':''} ${ruleLinks} </p>`);
+	}
+	$('#display').append('<hr>');
 }
 
 const COORDS = [

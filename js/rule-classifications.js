@@ -7,34 +7,6 @@ const RULE_CLASSIFICATIONS = {
 	4: [41, 54, 106, 110]
 };
 
-const CLASSIFICATION_DESCRIPTIONS = {
-	1: 'uniform',
-	2: 'periodic',
-	3: 'chaotic',
-	4: 'complex'
-}
-
-function getRuleClassification(ruleNum) {
-	// if ruleNum is an equvalent rule, find the corresponding ruleNum
-	if(!Object.keys(EQUIVALENT_RULES).includes(ruleNum.toString() ) ) {
-		for(let key in EQUIVALENT_RULES) {
-			if(EQUIVALENT_RULES[key].includes(ruleNum) ) {
-				ruleNum = parseInt(key);
-				break;
-			}
-		}
-	}
-
-	for(let key in RULE_CLASSIFICATIONS) {
-		if(RULE_CLASSIFICATIONS[key].includes(ruleNum) ) {
-			return key;
-		}
-	}
-	console.error('invalid rule number');
-}
-
-const getClassificationDescription = (classification)=> `evolves to ${CLASSIFICATION_DESCRIPTIONS[classification]} behavior`;
-
 const EQUIVALENT_RULES = {
 	0: [255],
 	1: [127],
@@ -125,3 +97,49 @@ const EQUIVALENT_RULES = {
 	204: [],
 	232: []
 };
+
+const CLASSIFICATION_DESCRIPTIONS = {
+	1: 'uniform',
+	2: 'periodic',
+	3: 'chaotic',
+	4: 'complex'
+}
+
+function getRuleClassification(ruleNum) {
+	// if ruleNum is an equvalent rule, find the corresponding ruleNum
+	if(!Object.keys(EQUIVALENT_RULES).includes(ruleNum.toString() ) ) {
+		for(let key in EQUIVALENT_RULES) {
+			if(EQUIVALENT_RULES[key].includes(ruleNum) ) {
+				ruleNum = parseInt(key);
+				break;
+			}
+		}
+	}
+
+	for(let key in RULE_CLASSIFICATIONS) {
+		if(RULE_CLASSIFICATIONS[key].includes(ruleNum) ) {
+			return key;
+		}
+	}
+	console.error('invalid rule number');
+}
+
+const getClassificationDescription = (classification)=> `evolves to ${CLASSIFICATION_DESCRIPTIONS[classification]} behavior`;
+
+function getEquivalentRules(ruleNum) {
+	if(Object.keys(EQUIVALENT_RULES).includes(ruleNum.toString() ) ) {
+		return EQUIVALENT_RULES[ruleNum];
+	}
+
+	let parentRuleNum;
+	for(let key in EQUIVALENT_RULES) {
+		if(EQUIVALENT_RULES[key].includes(ruleNum) ) {
+			parentRuleNum = parseInt(key);
+			break;
+		}
+	}
+	let newArr = [...EQUIVALENT_RULES[parentRuleNum] ]; // copy it
+	newArr.push(parentRuleNum); // add parent
+	newArr.splice(newArr.indexOf(ruleNum), 1); // remove current
+	return newArr;
+}
