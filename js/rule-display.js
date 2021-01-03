@@ -1,11 +1,14 @@
 function drawRuleDisplay(ruleNum) {
 	let ruleArray = getRuleArr(ruleNum);
-	$('#rule-num').html(ruleNum);
+	document.getElementById('rule-num').innerHTML = ruleNum;
 
 	for(let i=0, j=7; i<8; i++, j--) {
-		$('#display').append(getRuleSectionDisplay([Math.floor(j/4)%2, Math.floor(j/2)%2, j%2, ruleArray[i] ]) );
+		document.getElementById('display').appendChild(getRuleSectionDisplay([Math.floor(j/4)%2, Math.floor(j/2)%2, j%2, ruleArray[i] ]) );
 	}
-	$('#display').append(`<p>${ruleArray.join('')}<sub>2</sub></p><hr>`);
+	// (`<p>${ruleArray.join('')}<sub>2</sub></p><hr>`)
+	let p = document.createElement('p');
+	p.innerHTML=`${ruleArray.join('')}<sub>2</sub><hr>`;
+	document.getElementById('display').appendChild(p) ;
 }
 
 const COORDS = [
@@ -31,7 +34,7 @@ function getRuleSectionDisplay(arr) {
 	ctx.lineWidth = 1;
 	ctx.strokeStyle = '#66c';
 
-	const DO_STROKE = $('#grid-checkbox').is(':checked');
+	const DO_STROKE = document.getElementById('grid-checkbox').checked;
 
 	for(let i=0; i<4; i++) {
 		ctx.fillStyle = arr[i] == 1 ? 'black' : 'white';
