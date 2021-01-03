@@ -5,7 +5,9 @@ function drawRuleDisplay(ruleNum) {
 	for(let i=0, j=7; i<8; i++, j--) {
 		$('#display').append(getRuleSectionDisplay([Math.floor(j/4)%2, Math.floor(j/2)%2, j%2, ruleArray[i] ]) );
 	}
-	$('#display').append(`<p>${ruleArray.join('')}<sub>2</sub></p><hr>`);
+	$('#display').append(`<p>${ruleArray.join('')}<sub>2</sub></p>`);
+	let classification = getRuleClassification(ruleNum);
+	$('#display').append(`<p>Class ${classification} &mdash; ${getClassificationDescription(classification)}</p><hr>`);
 }
 
 const COORDS = [
