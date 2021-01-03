@@ -1,8 +1,8 @@
 future:
+	organize js
 	store settings in url params (or cookies, or download txt file options)
 	add credits to readme
 	consider using heroicons
-	organize js
 	use flex for multiple sections on larger screens?
 	modal for info (email, fullscreen)
 	optimize by making it one single canvas instead of one per row, add option to copy/download/print img
