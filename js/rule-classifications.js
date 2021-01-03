@@ -6,6 +6,35 @@ const RULE_CLASSIFICATIONS = {
 	3: [18, 22, 30, 45, 60, 90, 105, 122, 126, 146, 150],
 	4: [41, 54, 106, 110]
 };
+
+const CLASSIFICATION_DESCRIPTIONS = {
+	1: 'uniform',
+	2: 'periodic',
+	3: 'chaotic',
+	4: 'complex'
+}
+
+function getRuleClassification(ruleNum) {
+	// if ruleNum is an equvalent rule, find the corresponding ruleNum
+	if(!Object.keys(EQUIVALENT_RULES).includes(ruleNum.toString() ) ) {
+		for(let key in EQUIVALENT_RULES) {
+			if(EQUIVALENT_RULES[key].includes(ruleNum) ) {
+				ruleNum = parseInt(key);
+				break;
+			}
+		}
+	}
+
+	for(let key in RULE_CLASSIFICATIONS) {
+		if(RULE_CLASSIFICATIONS[key].includes(ruleNum) ) {
+			return key;
+		}
+	}
+	console.error('invalid rule number');
+}
+
+const getClassificationDescription = (classification)=> `evolves to ${CLASSIFICATION_DESCRIPTIONS[classification]} behavior`;
+
 const EQUIVALENT_RULES = {
 	0: [255],
 	1: [127],
@@ -76,7 +105,7 @@ const EQUIVALENT_RULES = {
 	132: [222],
 	134: [148, 158, 214],
 	136: [192, 238, 252],
-	138: [174, 208, 224],
+	138: [174, 208, 244],
 	140: [196, 206, 220],
 	142: [212],
 	146: [182],
