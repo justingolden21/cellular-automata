@@ -17,7 +17,7 @@ function drawRuleDisplay(ruleNum) {
 			ruleLinks += `<a onclick="$('#rule-num-input').val(${equRule}).change()">${equRule}</a>, `;
 		}
 		ruleLinks = ruleLinks.substring(0, ruleLinks.length - 2); // remove last comma
-		$('#display').append(`<p>Equivilant to rule${equivalentRules.length>1?'s':''} ${ruleLinks} </p>`);
+		$('#display').append(`<p>Equivalent to rule${equivalentRules.length>1?'s':''} ${ruleLinks} </p>`);
 	}
 	$('#display').append('<hr>');
 }
