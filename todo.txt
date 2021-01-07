@@ -1,22 +1,20 @@
 future:
 	organize js
-	store settings in url params (or cookies, or download txt file options)
 	add credits to readme
 	consider using heroicons
-	use flex for multiple sections on larger screens?
-	modal for info (email, fullscreen)
-	optimize by making it one single canvas instead of one per row, add option to copy/download/print img
-option to fullscreen only the canvas and play
+use flex for multiple sections on larger screens?
 modal for learning about what is cellular automata etc
-	settings for initial conditions/starting point? random option?
 modal where you can view all 256 in a table in smaller view? print btn for modal?
-stroke color settings and other visual settings?
 binary input option? maybe in a modal. click the canvas to flip the bit? maybe a checkbox...
-store settings in cookies option? reset settings btn?
 
 bonus points:
 display a logic ciruit, using a k-map, for the cellular automata
 
 maybe:
+store settings in url params (or cookies, or download txt file options), reset settings btn
 replace some numeric inputs with sliders
-option to view/copy/download raw 1s and 0s for output, columns and center row
+raw data option for center column
+add option to print img
+option to fullscreen only the canvas and play
+more settings for initial conditions?
+stroke color settings and other visual settings?

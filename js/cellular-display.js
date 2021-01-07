@@ -7,9 +7,18 @@ function drawCellularDisplay(ruleNum, individualRows=false) {
 	console.time('cellular draw');
 	let ruleArray = getRuleArr(ruleNum);
 
-	// init row at all 0s with a 1 in center
-	nextRow = new Array(CELLULAR_WIDTH).fill(0);
-	nextRow[Math.floor(CELLULAR_WIDTH/2)] = 1;
+	const RANDOM_INITIAL = $('#initial-checkbox').is(':checked');
+	if(!RANDOM_INITIAL) {	
+		// init row at all 0s with a 1 in center
+		nextRow = new Array(CELLULAR_WIDTH).fill(0);
+		nextRow[Math.floor(CELLULAR_WIDTH/2)] = 1;
+	} else {
+		// init row with random 1s and 0s
+		nextRow = [];
+		for(let i=0; i<CELLULAR_WIDTH; i++) {
+			nextRow[i] = Math.random() > 0.5 ? 1 : 0;
+		}
+	}
 
 	const DO_STROKE = $('#grid-checkbox').is(':checked');
 	let wrapMode = $('#edge-select').val();
