@@ -39,6 +39,15 @@ hr {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 }
+details p, details summary {
+	margin-left: 1rem;
+	text-align: left;
+	font-size: smaller;
+}
+summary {
+	cursor: pointer;
+	margin-top: 0.5rem;
+}
 label {
 	margin-right: 0.25rem;
 	margin-left: 0.5rem;

@@ -16,7 +16,13 @@ More reading: https://mathworld.wolfram.com/ElementaryCellularAutomaton.html
 
 <hr>
 
-Links for nerds:
+##### Credits
+
+Wolfram's classifications from https://arxiv.org/pdf/1306.5577.pdf, patterns from https://www.heropatterns.com
+
+<hr>
+
+##### Links for nerds
 
 - https://plato.stanford.edu/entries/cellular-automata/
 
@@ -32,7 +38,7 @@ Links for nerds:
 
 <hr>
 
-by Justin Golden
+##### By Justin Golden
 
 https://justingolden.me
 

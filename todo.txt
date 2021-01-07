@@ -1,9 +1,7 @@
 future:
 	organize js
-	add credits to readme
 	consider using heroicons
 use flex for multiple sections on larger screens?
-modal for learning about what is cellular automata etc
 modal where you can view all 256 in a table in smaller view? print btn for modal?
 binary input option? maybe in a modal. click the canvas to flip the bit? maybe a checkbox...
 
