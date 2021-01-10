@@ -1,13 +1,16 @@
 let CELLULAR_WIDTH;
 let CELLULAR_HEIGHT;
 
-let nextRow;
-
-function drawCellularDisplay(ruleNum, individualRows=false, display=$('#display') ) {
+function drawCellularDisplay(ruleNum, display=$('#display') ) {
 	console.time('cellular draw');
+
+	let nextRow;
 	let ruleArray = getRuleArr(ruleNum);
 
 	const RANDOM_INITIAL = $('#initial-checkbox').is(':checked');
+	const DO_STROKE = $('#grid-checkbox').is(':checked');
+	const WRAP_MODE = $('#edge-select').val();
+
 	if(!RANDOM_INITIAL) {	
 		// init row at all 0s with a 1 in center
 		nextRow = new Array(CELLULAR_WIDTH).fill(0);
@@ -19,9 +22,6 @@ function drawCellularDisplay(ruleNum, individualRows=false, display=$('#display'
 			nextRow[i] = Math.random() > 0.5 ? 1 : 0;
 		}
 	}
-
-	const DO_STROKE = $('#grid-checkbox').is(':checked');
-	let wrapMode = $('#edge-select').val();
 
 	let canvas = document.createElement('canvas');
 	canvas.width = SQ_SIZE*CELLULAR_WIDTH;
@@ -38,7 +38,7 @@ function drawCellularDisplay(ruleNum, individualRows=false, display=$('#display'
 	for(let i=0; i<CELLULAR_HEIGHT; i++) {
 		addRowToCanvas(ctx, i, nextRow, DO_STROKE);
 		rows.push(nextRow);
-		nextRow = getNextRow(nextRow, ruleArray, wrapMode);
+		nextRow = getNextRow(nextRow, ruleArray, WRAP_MODE);
 	}
 	display.append(canvas);
 

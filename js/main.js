@@ -184,6 +184,6 @@ function openPageWithAll() {
 	let newWindow = window.open('', '', 'width=400,height=400');
 	newWindow.document.write('<div id="display"></div>');
 	for(let ruleNum=0; ruleNum<256; ruleNum++) {
-		drawCellularDisplay(ruleNum, false, $(newWindow.document.getElementById('display') ) );
+		drawCellularDisplay(ruleNum, $(newWindow.document.getElementById('display') ) );
 	}
 }
