@@ -66,9 +66,7 @@ $( ()=> {
 	}
 
 	$('input:not(#dark-checkbox), #edge-select').change( ()=> {
-		$('#loading-div').show();
-		setTimeout(redraw, 10);
-		setTimeout( ()=>$('#loading-div').hide(), 10);
+		handleLoading(redraw);
 	});
 	$('#rule-num-input').select().change();
 
@@ -88,10 +86,8 @@ $( ()=> {
 
 			// prepare for animation
 			$('#display .row-canvas').remove();
-			
-			$('#loading-div').show();
-			setTimeout( ()=> drawCellularDisplay(num, true), 10);
-			setTimeout( ()=>$('#loading-div').hide(), 10);
+
+			handleLoading( ()=> drawCellularDisplay(num, true) );
 		} else {
 			$('#play-pause-btn').html('Play');
 			clearInterval(animationInterval);
@@ -134,9 +130,7 @@ $( ()=> {
 	});
 
 	$('#all-cellular-btn').click( ()=> {
-		$('#loading-div').show();
-		setTimeout(openPageWithAll, 10);
-		setTimeout( ()=>$('#loading-div').hide(), 10);
+		handleLoading(openPageWithAll);
 	});
 
 	// raw data
@@ -212,6 +206,12 @@ function downloadFile(str, fileName) {
 	link.download = fileName + '.txt';
 	link.href = URL.createObjectURL(file);
 	link.click();
+}
+
+function handleLoading(func) {
+	$('#loading-div').show();
+	setTimeout(func, 10);
+	setTimeout( ()=>$('#loading-div').hide(), 10);
 }
 
 function openPageWithAll() {
