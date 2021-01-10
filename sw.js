@@ -1,7 +1,4 @@
-// simplistic service worker from
-// https://github.com/iamshaunjp/pwa-tutorial/blob/lesson-17/sw.js
-
-const staticCacheName = 'site-static-v1';
+const staticCacheName = 'site-static-v2';
 const assets = [
 	'/',
 	'/index.html',
