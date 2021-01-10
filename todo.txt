@@ -2,8 +2,8 @@ future:
 	organize js
 	consider using heroicons
 use flex for multiple sections on larger screens?
-modal where you can view all 256 in a table in smaller view? print btn for modal?
 binary input option? maybe in a modal. click the canvas to flip the bit? maybe a checkbox...
+update readme
 
 bonus points:
 display a logic ciruit, using a k-map, for the cellular automata
@@ -13,6 +13,6 @@ store settings in url params (or cookies, or download txt file options), reset s
 replace some numeric inputs with sliders
 raw data option for center column
 add option to print img
-option to fullscreen only the canvas and play
 more settings for initial conditions?
 stroke color settings and other visual settings?
+print button for canvas (with options?)

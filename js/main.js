@@ -39,10 +39,6 @@ $( ()=> {
 	// main function and setup
 
 	function redraw() {
-		if($('#play-pause-btn').html().indexOf('Play') == -1) {
-			$('#play-pause-btn').click();
-		}
-
 		let num = getVal('rule-num-input');
 
 		if($('#link-btn').html().indexOf('Unlink Rule Number') != -1) {
@@ -76,36 +72,6 @@ $( ()=> {
 		$('#rule-num-input').val(random(0,255) ).change()
 	);
 
-	$('#play-pause-btn').click( ()=> {
-		let num = getVal('rule-num-input');
-		if($('#play-pause-btn').html().indexOf('Play') != -1) {
-			$('#play-pause-btn').html('Pause');
-
-			animationInterval = setInterval( ()=> nextFrame(num), $('#speed-select').val() );
-			$('#display .row-canvas').first()[0].scrollIntoView();
-
-			// prepare for animation
-			$('#display .row-canvas').remove();
-
-			handleLoading( ()=> drawCellularDisplay(num, true) );
-		} else {
-			$('#play-pause-btn').html('Play');
-			clearInterval(animationInterval);
-		}
-	});
-
-	$('#restart-btn').click( ()=> {
-		clearInterval(animationInterval);
-		$('#play-pause-btn').html('Play');
-		redraw();
-	});
-
-	$('#speed-select').change( ()=> {
-		if($('#play-pause-btn').html().indexOf('Play') == -1) { // playing
-			$('#play-pause-btn').click().click();
-		}
-	});
-
 	$('#dark-checkbox').change( ()=> {
 		$('#dark-css').attr('href', $('#dark-checkbox').is(':checked') ? 'css/dark.css' : '');
 		$('#background-select').change();
@@ -114,12 +80,12 @@ $( ()=> {
 	$('#download-img-btn').click( ()=> {
 		let link = document.createElement('a');
 		link.download = `Rule ${$('#rule-num').html()}.png`;
-		link.href = document.getElementsByClassName('row-canvas')[0].toDataURL();
+		link.href = document.getElementById('cellular-canvas').toDataURL();
 		link.click();
 	});
 
 	$('#fullscreen-canvas-btn').click( ()=> {
-		let elm = document.getElementsByClassName('row-canvas')[0];
+		let elm = document.getElementById('cellular-canvas');
 		if(elm.requestFullscreen) {
 			elm.requestFullscreen();
 		} else if(elm.webkitRequestFullscreen) {

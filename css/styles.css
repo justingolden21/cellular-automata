@@ -97,16 +97,10 @@ canvas, input, button, select, textarea {
 	margin: 0.25rem;
 	padding: 0.25rem;
 }
-.row-canvas {
+#cellular-canvas {
 	display: block;
 	margin: auto;
 	border-bottom: 0;
-}
-.row-canvas ~ .row-canvas {
-	border-top: 0;
-}
-.row-canvas:last-of-type {
-	border-bottom: 2px solid black;
 }
 #rule-num {
 	font-weight: bold;

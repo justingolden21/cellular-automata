@@ -8,8 +8,6 @@ Explore all 256 rules of 1D cellular automata
 
 - Change the grid size and square size
 
-- Watch the automata animate before your eyes
-
 - Link to a specific rule number for easy sharing : )
 
 More reading: https://mathworld.wolfram.com/ElementaryCellularAutomaton.html
