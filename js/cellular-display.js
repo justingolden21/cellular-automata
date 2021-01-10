@@ -29,6 +29,7 @@ function drawCellularDisplay(ruleNum, individualRows=false, display=$('#display'
 		canvas.width = SQ_SIZE*CELLULAR_WIDTH;
 		canvas.height = SQ_SIZE*CELLULAR_HEIGHT;
 		canvas.classList = 'row-canvas';
+		canvas.title = 'Rule ' + ruleNum;
 
 		let ctx = canvas.getContext('2d');
 		ctx.lineWidth = 1;
