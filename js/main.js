@@ -133,7 +133,11 @@ $( ()=> {
 		}
 	});
 
-	$('#all-cellular-btn').click(openPageWithAll);
+	$('#all-cellular-btn').click( ()=> {
+		$('#loading-div').show();
+		setTimeout(openPageWithAll, 10);
+		setTimeout( ()=>$('#loading-div').hide(), 10);
+	});
 
 	// raw data
 
