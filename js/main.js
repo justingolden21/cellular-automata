@@ -2,7 +2,9 @@ let SQ_SIZE;
 let animationInterval;
 
 $( ()=> {
-	// get url param
+
+	// url params, copying, and links
+
 	let url = new URL(window.location.href);
 	let ca = url.searchParams.get('ca');
 	ca = verify(ca, 0, 255, -1);
@@ -33,6 +35,8 @@ $( ()=> {
 			history.replaceState({}, '', '?ca=' + getVal('rule-num-input') ); // set url param
 		}
 	});
+
+	// main function and setup
 
 	function redraw() {
 		if($('#play-pause-btn').html().indexOf('Play') == -1) {
@@ -67,6 +71,8 @@ $( ()=> {
 		setTimeout( ()=>$('#loading-div').hide(), 10);
 	});
 	$('#rule-num-input').select().change();
+
+	// misc btn listeners
 
 	$('#random-btn').click( ()=> 
 		$('#rule-num-input').val(random(0,255) ).change()
@@ -116,6 +122,21 @@ $( ()=> {
 		link.click();
 	});
 
+	$('#fullscreen-canvas-btn').click( ()=> {
+		let elm = document.getElementsByClassName('row-canvas')[0];
+		if(elm.requestFullscreen) {
+			elm.requestFullscreen();
+		} else if(elm.webkitRequestFullscreen) {
+			elm.webkitRequestFullscreen();
+		} else if(elm.msRequestFullscreen) {
+			elm.msRequestFullscreen();
+		}
+	});
+
+	$('#all-cellular-btn').click(openPageWithAll);
+
+	// raw data
+
 	$('#raw-data-btn').click( ()=> {
 		if($('#raw-data-btn').html().indexOf('Show') != -1) {
 			$('#raw-data-btn').html('Hide Raw Data');
@@ -138,28 +159,16 @@ $( ()=> {
 	$('#download-raw-data-btn').click( ()=> {
 		downloadFile($('#raw-data').val(), `rule ${$('#rule-num').html()}`);
 	});
-
-	$('#fullscreen-canvas-btn').click( ()=> {
-		let elm = document.getElementsByClassName('row-canvas')[0];
-		if(elm.requestFullscreen) {
-			elm.requestFullscreen();
-		} else if(elm.webkitRequestFullscreen) {
-			elm.webkitRequestFullscreen();
-		} else if(elm.msRequestFullscreen) {
-			elm.msRequestFullscreen();
-		}
-	});
-
-	$('#all-cellular-btn').click(openPageWithAll);
 	
 	// one details open at a time
+
 	// https://stackoverflow.com/a/36994802/4907950
 	const details = document.querySelectorAll('details');
-	details.forEach((targetDetail) => {
-		targetDetail.addEventListener('click', () => {
+	details.forEach(targetDetail=> {
+		targetDetail.addEventListener('click', ()=> {
 			// close details that aren't the target
-			details.forEach((detail) => {
-				if (detail !== targetDetail) {
+			details.forEach(detail => {
+				if(detail !== targetDetail) {
 					detail.removeAttribute('open');
 				}
 			});
@@ -167,6 +176,8 @@ $( ()=> {
 	});
 
 });
+
+// utility functions
 
 function getVal(elmID) {
 	let elm = $(`#${elmID}`);
@@ -202,7 +213,7 @@ function downloadFile(str, fileName) {
 function openPageWithAll() {
 	let newWindow = window.open('', '', 'width=400,height=400');
 	newWindow.document.write('<div id="display"></div>');
-	for(let i=0; i<256; i++) { // rule num is i
-		drawCellularDisplay(i, false, $(newWindow.document.getElementById('display') ) );
+	for(let ruleNum=0; ruleNum<256; ruleNum++) {
+		drawCellularDisplay(ruleNum, false, $(newWindow.document.getElementById('display') ) );
 	}
 }
