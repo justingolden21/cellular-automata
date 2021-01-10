@@ -1,11 +1,10 @@
+priority:
+organize js
+consider using heroicons
+
 future:
-	organize js
-	consider using heroicons
 use flex for multiple sections on larger screens?
 binary input option? maybe in a modal. click the canvas to flip the bit? maybe a checkbox...
-
-bonus points:
-display a logic ciruit, using a k-map, for the cellular automata
 
 maybe:
 store settings in url params (or cookies, or download txt file options), reset settings btn
@@ -15,3 +14,7 @@ add option to print img
 more settings for initial conditions?
 stroke color settings and other visual settings?
 print button for canvas (with options?)
+display a logic ciruit, using a k-map, for the cellular automata
+
+bugs:
+dark mode doesn't work in PWA offline

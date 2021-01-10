@@ -1,5 +1,5 @@
 {
-	"name": "Cellular Automata Playground",
+	"name": "Cellular Automata",
 	"short_name": "Cellular Automata",
 	"description": "Explore all 256 rules of 1D cellular automata",
 	"start_url": "index.html",
