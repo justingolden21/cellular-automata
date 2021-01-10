@@ -3,7 +3,6 @@ future:
 	consider using heroicons
 use flex for multiple sections on larger screens?
 binary input option? maybe in a modal. click the canvas to flip the bit? maybe a checkbox...
-update readme
 
 bonus points:
 display a logic ciruit, using a k-map, for the cellular automata
