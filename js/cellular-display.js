@@ -3,7 +3,7 @@ let CELLULAR_HEIGHT;
 
 let nextRow;
 
-function drawCellularDisplay(ruleNum, individualRows=false) {
+function drawCellularDisplay(ruleNum, individualRows=false, display=$('#display') ) {
 	console.time('cellular draw');
 	let ruleArray = getRuleArr(ruleNum);
 
@@ -38,10 +38,10 @@ function drawCellularDisplay(ruleNum, individualRows=false) {
 			addRowToCanvas(ctx, i, nextRow, DO_STROKE);
 			nextRow = getNextRow(nextRow, ruleArray, wrapMode);
 		}
-		$('#display').append(canvas);
+		display.append(canvas);
 	} else {
 		for(let i=0; i<CELLULAR_HEIGHT; i++) {		
-			$('#display').append(getCellularRowDisplay(nextRow, DO_STROKE) );
+			display.append(getCellularRowDisplay(nextRow, DO_STROKE) );
 			nextRow = getNextRow(nextRow, ruleArray, wrapMode);
 		}
 	}

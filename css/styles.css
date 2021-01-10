@@ -39,7 +39,7 @@ hr {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 }
-details p, details summary {
+#modal details p, #modal details summary {
 	margin-left: 1rem;
 	text-align: left;
 	font-size: smaller;

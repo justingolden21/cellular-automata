@@ -154,6 +154,7 @@ $( ()=> {
 		}
 	});
 
+	$('#all-cellular-btn').click(openPageWithAll);
 	
 	// one details open at a time
 	// https://stackoverflow.com/a/36994802/4907950
@@ -200,4 +201,12 @@ function downloadFile(str, fileName) {
 	link.download = fileName + '.txt';
 	link.href = URL.createObjectURL(file);
 	link.click();
+}
+
+function openPageWithAll() {
+	let newWindow = window.open('', '', 'width=400,height=400');
+	newWindow.document.write('<div id="display"></div>');
+	for(let i=0; i<256; i++) { // rule num is i
+		drawCellularDisplay(i, false, $(newWindow.document.getElementById('display') ) );
+	}
 }
