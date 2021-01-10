@@ -32,9 +32,14 @@
 	to {top: 0; opacity: 1}
 }
 
-#about-modal-btn {
+#about-modal-btn, #settings-modal-btn {
 	position: absolute;
 	top: 0;
-	left: 0;
 	margin: 0.5rem;
+}
+#about-modal-btn {
+	left: 0;
+}
+#settings-modal-btn {
+	right: 0;
 }

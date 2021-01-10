@@ -47,23 +47,10 @@
 	<option value="white">White</option>
 </select>
 <br>
-<label for="grid-checkbox">Grid Lines</label>
-<input id="grid-checkbox" type="checkbox">
-<label for="dark-checkbox">Dark Mode</label>
-<input id="dark-checkbox" type="checkbox">
 <label for="initial-checkbox">Random Initial Condition</label>
 <input id="initial-checkbox" type="checkbox">
 <br>
-<label for="background-select">Background</label>
-<select id="background-select"></select>
-<button id="fullscreen-canvas-btn">Fullscreen Canvas</button>
-<br>
 <small>Please note that more than 200 steps will take some time to process</small>
-<details>
-	<summary>Experimental</summary>
-	<button id="all-cellular-btn">Open New Window with All 256 rules</button>
-	<p><small>Note: uses your current settings. Recommended small step number</small></p>
-</details>
 
 <h3>Share</h3>
 <span id="copied-span">Copied!</span>
@@ -76,7 +63,29 @@
 <button id="download-raw-data-btn" class="small">Download Raw Data</button>
 <textarea id="raw-data" cols="81" rows="4"></textarea>
 
-<button id="about-modal-btn">About</button>
+<button id="settings-modal-btn" class="modal-btn" href="#settings-modal">Settings</button>
+<div id="settings-modal" class="modal">
+	<div class="modal-content">
+		<button class="close">&times;</button>
+		<h3>Settings</h3>
+		<hr>
+		<label for="grid-checkbox">Grid Lines</label>
+		<input id="grid-checkbox" type="checkbox">
+		<label for="dark-checkbox">Dark Mode</label>
+		<input id="dark-checkbox" type="checkbox">
+		<label for="background-select">Background</label>
+		<select id="background-select"></select>
+		<button id="fullscreen-canvas-btn">Fullscreen Canvas</button>
+		<br>
+		<details>
+			<summary>Experimental</summary>
+			<button id="all-cellular-btn">Open New Window with All 256 rules</button>
+			<p><small>Note: uses your current settings. Recommended small step number</small></p>
+		</details>
+	</div>
+</div>
+
+<button id="about-modal-btn" class="modal-btn" href="#about-modal">About</button>
 <div id="about-modal" class="modal">
 	<div class="modal-content">
 		<button class="close">&times;</button>
