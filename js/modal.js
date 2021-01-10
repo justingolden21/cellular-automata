@@ -1,7 +1,7 @@
 $( ()=> {
 
-	let modal = document.getElementById('modal');
-	let btn = document.getElementById('modal-btn');
+	let modal = document.getElementById('about-modal');
+	let btn = document.getElementById('about-modal-btn');
 	let close = document.getElementsByClassName('close')[0];
 
 	btn.onclick = function() {

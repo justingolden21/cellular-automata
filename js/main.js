@@ -2,10 +2,6 @@ let SQ_SIZE;
 let animationInterval;
 
 $( ()=> {
-	// https://stackoverflow.com/a/3540295/4907950
-	SQ_SIZE = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? 5: 10;
-	$('#size-input').val(SQ_SIZE);
-
 	// get url param
 	let url = new URL(window.location.href);
 	let ca = url.searchParams.get('ca');
