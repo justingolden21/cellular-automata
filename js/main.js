@@ -151,8 +151,7 @@ $( ()=> {
 
 function getVal(elmID) {
 	let elm = $(`#${elmID}`);
-	let val = parseInt(elm.val() );
-	val = verify(val, elm.attr('min'), elm.attr('max'), elm.attr('min') );
+	let val = verify(elm.val(), elm.attr('min'), elm.attr('max'), elm.attr('min') );
 	elm.val(val);
 	return val;
 }

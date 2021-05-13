@@ -11,7 +11,7 @@ function drawCellularDisplay(ruleNum, display=$('#display') ) {
 	const DO_STROKE = $('#grid-checkbox').is(':checked');
 	const WRAP_MODE = $('#edge-select').val();
 
-	if(!RANDOM_INITIAL) {	
+	if(!RANDOM_INITIAL) {
 		// init row at all 0s with a 1 in center
 		nextRow = new Array(CELLULAR_WIDTH).fill(0);
 		nextRow[Math.floor(CELLULAR_WIDTH/2)] = 1;
