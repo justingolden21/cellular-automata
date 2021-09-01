@@ -1,157 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-<title>Cellular Automata</title>
-<meta charset="utf-8">
-<meta name="title=" content="Cellular Automata">
-<meta name="robots" content="index, follow">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Explore all 256 rules of 1D cellular automata">
-<meta name="keywords" content="cellular automata, cellular automata rules, 1d cellular automata, 1d cellular automata rules, cellular automata 1d, cellular automata 1d rules">
-<link rel="shortcut icon" href="img/icons/icon-96x96.png">
-<link rel="apple-touch-icon" href="img/icons/icon-96x96.png">
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#6666CC">
-<meta name="apple-mobile-web-app-status-bar" content="#6666CC">
-<meta name="apple-mobile-web-app-status-bar-style" content="#6666CC">
-<meta name="msapplication-navbutton-color" content="#6666CC">
+    <title>Cellular Automata</title>
+    <meta charset="utf-8">
+    <meta name="title=" content="Cellular Automata">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore all 256 rules of 1D cellular automata">
+    <meta name="keywords"
+        content="cellular automata, cellular automata rules, 1d cellular automata, 1d cellular automata rules, cellular automata 1d, cellular automata 1d rules">
+    <link rel="shortcut icon" href="img/icons/icon-96x96.png">
+    <link rel="apple-touch-icon" href="img/icons/icon-96x96.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#6666CC">
+    <meta name="apple-mobile-web-app-status-bar" content="#6666CC">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#6666CC">
+    <meta name="msapplication-navbutton-color" content="#6666CC">
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- https://raw.githubusercontent.com/justingolden21/umbrella/master/umbrella.min.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/loader.css">
-<link rel="stylesheet" href="css/modal.css">
-<link id="dark-css" rel="stylesheet" href="">
-<script src="js/main.js"></script>
-<script src="js/rule-display.js"></script>
-<script src="js/cellular-display.js"></script>
-<script src="js/pattern.js"></script>
-<script src="js/modal.js"></script>
-<script src="js/rule-classifications.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link id="dark-css" rel="stylesheet" href="">
+    <script src="js/main.js"></script>
+    <script src="js/rule-display.js"></script>
+    <script src="js/cellular-display.js"></script>
+    <script src="js/pattern.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/rule-classifications.js"></script>
 
 </head>
+
 <body>
 
-<h3 id="title">Cellular Automata Rule <span id="rule-num"></span></h3>
-<label for="rule-num-input">Rule number <small>(0 - 255)</small></label>
-<input id="rule-num-input" type="number" min="0" max="255" value="30">
-<button id="random-btn">Random</button>
+    <h3 id="title">Cellular Automata Rule <span id="rule-num"></span></h3>
+    <label for="rule-num-input">Rule number <small>(0 - 255)</small></label>
+    <input id="rule-num-input" type="number" min="0" max="255" value="30">
+    <button id="random-btn">Random</button>
 
-<div id="display"></div>
-<hr>
+    <div id="display"></div>
+    <hr>
 
-<h3>Display</h3>
-<label for="steps-input">Steps</label>
-<input id="steps-input" type="number" min="10" max="1000" value="25">
-<label for="size-input">Square Size</label>
-<input id="size-input" type="number" min="1" max="30" value="5">
-<label for="edge-select">Edges</label>
-<select id="edge-select">
-	<option value="wrap">Wrap around</option>
-	<option value="black">Black</option>
-	<option value="white">White</option>
-</select>
-<br>
-<label for="initial-checkbox">Random Initial Condition</label>
-<input id="initial-checkbox" type="checkbox">
-<br>
-<small>Please note that more than 200 steps will take some time to process</small>
+    <h3>Display</h3>
+    <label for="steps-input">Steps</label>
+    <input id="steps-input" type="number" min="10" max="1000" value="25">
+    <label for="size-input">Square Size</label>
+    <input id="size-input" type="number" min="1" max="30" value="5">
+    <label for="edge-select">Edges</label>
+    <select id="edge-select">
+        <option value="wrap">Wrap around</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+    </select>
+    <br>
+    <label for="initial-checkbox">Random Initial Condition</label>
+    <input id="initial-checkbox" type="checkbox">
+    <br>
+    <small>Please note that more than 200 steps will take some time to process</small>
 
-<h3>Share</h3>
-<span id="copied-span">Copied!</span>
-<button id="copy-link-btn">Copy Link</button>
-<button id="link-btn">Unlink Rule Number</button>
-<button id="download-img-btn">Download Image</button>
-<br><br>
-<button id="raw-data-btn" class="small">Show Raw Data</button>
-<button id="copy-raw-data-btn" class="small">Copy Raw Data</button>
-<button id="download-raw-data-btn" class="small">Download Raw Data</button>
-<textarea id="raw-data" cols="81" rows="4"></textarea>
+    <h3>Share</h3>
+    <span id="copied-span">Copied!</span>
+    <button id="copy-link-btn">Copy Link</button>
+    <button id="link-btn">Unlink Rule Number</button>
+    <button id="download-img-btn">Download Image</button>
+    <br><br>
+    <button id="raw-data-btn" class="small">Show Raw Data</button>
+    <button id="copy-raw-data-btn" class="small">Copy Raw Data</button>
+    <button id="download-raw-data-btn" class="small">Download Raw Data</button>
+    <textarea id="raw-data" cols="81" rows="4"></textarea>
 
-<button id="settings-modal-btn" class="modal-btn" href="#settings-modal">Settings</button>
+    <button id="settings-modal-btn" class="modal-btn" href="#settings-modal">Settings</button>
 
-<button id="about-modal-btn" class="modal-btn" href="#about-modal">About</button>
-<div id="settings-modal" class="modal">
-	<div class="modal-content">
-		<button class="close">&times;</button>
-		<h3>Settings</h3>
-		<hr>
-		<p><b>Display Settings</b></p>
-		<label for="grid-checkbox">Grid Lines</label>
-		<input id="grid-checkbox" type="checkbox">
-		<label for="dark-checkbox">Dark Mode</label>
-		<input id="dark-checkbox" type="checkbox">
-		<label for="background-select">Background</label>
-		<select id="background-select"></select>
-		<button id="fullscreen-canvas-btn">Fullscreen Canvas</button>
-		<br>
-		<details>
-			<summary>Experimental</summary>
-			<button id="all-cellular-btn">Open New Window with All 256 rules</button>
-			<p><small>Note: uses your current settings. Recommended small step number</small></p>
-		</details>
-	</div>
-</div>
+    <button id="about-modal-btn" class="modal-btn" href="#about-modal">About</button>
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <button class="close">&times;</button>
+            <h3>Settings</h3>
+            <hr>
+            <p><b>Display Settings</b></p>
+            <label for="grid-checkbox">Grid Lines</label>
+            <input id="grid-checkbox" type="checkbox">
+            <label for="dark-checkbox">Dark Mode</label>
+            <input id="dark-checkbox" type="checkbox">
+            <label for="background-select">Background</label>
+            <select id="background-select"></select>
+            <button id="fullscreen-canvas-btn">Fullscreen Canvas</button>
+            <br>
+            <details>
+                <summary>Experimental</summary>
+                <button id="all-cellular-btn">Open New Window with All 256 rules</button>
+                <p><small>Note: uses your current settings. Recommended small step number</small></p>
+            </details>
+        </div>
+    </div>
 
-<div id="about-modal" class="modal">
-	<div class="modal-content">
-		<button class="close">&times;</button>
-		<h3>Help</h3>
-		<hr>
-		<p><b>About Cellular Automata</b></p>
-		<details>
-			<summary>What is this website?</summary>
-			<p>This is a playground / sandbox for exploring all 256 elementary cellular automata.</p>
-		</details>
-		<details>
-			<summary>What are cellular automata?</summary>
-			<p>A cellular automaton is a set of rules that determines how colored squares on a grid change with time. Among most studied ones, are the 256 elementary cellular automata: the most primitive rules.</p>
-		</details>
-		<details>
-			<summary>What are the elementary cellular automata?</summary>
-			<p>The elementary cellular automata are generated based on the states of 3 squares: the previous square in that location, and the ones to the left and right of it. Each time step is drawn below the previous, so it is shown as the top left, top, and top right squares which affect the square below. There are 2^3 = 8 possible combinations of these three squares (being white or black), and 2^8 = 256 possible rules (each of the 8 combinations can result in a white or a black).</p>
-		</details>
-		<details>
-			<summary>Why are they numbered the way they are?</summary>
-			<p>Each of the 8 possible previous conditions can be written in binary (1s and 0s) instead of black and white squares (white is "off" or 0, black is "on" or 1). With the 8 previous conditions laid out in order, with the resulting output (0 or 1) below, the binary for the rule can be converted to decimal for humans to easily read (for example, 00011110 is rule 30).</p>
-		</details>
-		<details>
-			<summary>How does binary work?</summary>
-			<p>Base 10 (decimal) works by adding up powers of 10 (1, 10, 100, 1000). For example, the number "456" is 4 100s, 5 10s and 6 1s, or 4*100 + 5*10 + 6*1. Binary works the same way, but instead by adding powers of 2. For example, 100100 is 0 in the 1s and 2s place, 1 in the 4s place, 0 in the 8s and 16s place, and 1 in the 32s place, so it's 4+32, which is 36. Convert bases at <a href="https://rgbstudios.org/base-convert/" target="_blank">rgbstudios.org/base-convert</a>. </p>
-		</details>
-		<details>
-			<summary>What is cellular automata used for?</summary>
-			<p>Cellular automata are most commonly used to model physical or biological systems. Perhaps the most famous cellular automaton is <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank">Conway's Game of Life</a> which you can experiment with <a href="https://justingolden.me/game-of-life" target="_blank">here</a>. Cellular automata can even be used to <a href="http://justingolden.me/map-generator/" target="_blank">generate maps or terrain in video games</a>. See more applications on <a href="https://en.wikipedia.org/wiki/Cellular_automaton#Applications" target="_blank">Wikipedia</a>.</p>
-		</details>
-		<p><b>Using this Website</b></p>
-		<details>
-			<summary>How can I copy the cellular automata image?</summary>
-			<p>Right click it > "Copy image"</p>
-		</details>
-		<details>
-			<summary>What does the "Edges" option do?</summary>
-			<p>It allows you to change the behavior of the left-most and right-most squares (whether they wrap back around to the other side, or assume their non-existent neighbor is always white or always black.</p>
-		</details>
-		<details>
-			<summary>I have another question</summary>
-			<p>Feel free to email me at <a href="mailto:contact@justingolden.me" target="_blank">contact@justingolden.me</a>.</p>
-		</details>
-		<p></p>
-		<h3>About</h3>
-		<hr>
-		<p>made by <a href="https://justingolden.me" target="_blank">Justin Golden</a></p>
-		<small><p><a href="https://github.com/justingolden21/cellular-automata" target="_blank">GitHub repository</a></p></small>
-		<small><p>also check out my playground for <a href="https://justingolden.me/game-of-life" target="_blank">Conway's Game of Life</a></p></small>
-		<small><p>or check out my <a href="http://justingolden.me/map-generator/" target="_blank">map generator</a> made by using 2d cellular automata</p></small>
-		<small><p>Wolfram's classifications from <a href="https://arxiv.org/pdf/1306.5577.pdf" target="_blank">arxiv.org</a>, patterns from <a href="https://www.heropatterns.com" target="_blank">heropatterns.com</a></p></small>
-		<br><br><br><br>
-	</div>
-</div>
+    <div id="about-modal" class="modal">
+        <div class="modal-content">
+            <button class="close">&times;</button>
+            <h3>Help</h3>
+            <hr>
+            <p><b>About Cellular Automata</b></p>
+            <details>
+                <summary>What is this website?</summary>
+                <p>This is a playground / sandbox for exploring all 256 elementary cellular automata.</p>
+            </details>
+            <details>
+                <summary>What are cellular automata?</summary>
+                <p>A cellular automaton is a set of rules that determines how colored squares on a grid change with
+                    time. Among most studied ones, are the 256 elementary cellular automata: the most primitive rules.
+                </p>
+            </details>
+            <details>
+                <summary>What are the elementary cellular automata?</summary>
+                <p>The elementary cellular automata are generated based on the states of 3 squares: the previous square
+                    in that location, and the ones to the left and right of it. Each time step is drawn below the
+                    previous, so it is shown as the top left, top, and top right squares which affect the square below.
+                    There are 2^3 = 8 possible combinations of these three squares (being white or black), and 2^8 = 256
+                    possible rules (each of the 8 combinations can result in a white or a black).</p>
+            </details>
+            <details>
+                <summary>Why are they numbered the way they are?</summary>
+                <p>Each of the 8 possible previous conditions can be written in binary (1s and 0s) instead of black and
+                    white squares (white is "off" or 0, black is "on" or 1). With the 8 previous conditions laid out in
+                    order, with the resulting output (0 or 1) below, the binary for the rule can be converted to decimal
+                    for humans to easily read (for example, 00011110 is rule 30).</p>
+            </details>
+            <details>
+                <summary>How does binary work?</summary>
+                <p>Base 10 (decimal) works by adding up powers of 10 (1, 10, 100, 1000). For example, the number "456"
+                    is 4 100s, 5 10s and 6 1s, or 4*100 + 5*10 + 6*1. Binary works the same way, but instead by adding
+                    powers of 2. For example, 100100 is 0 in the 1s and 2s place, 1 in the 4s place, 0 in the 8s and 16s
+                    place, and 1 in the 32s place, so it's 4+32, which is 36. Convert bases at <a
+                        href="https://rgbstudios.org/base-convert/" target="_blank">rgbstudios.org/base-convert</a>.
+                </p>
+            </details>
+            <details>
+                <summary>What is cellular automata used for?</summary>
+                <p>Cellular automata are most commonly used to model physical or biological systems. Perhaps the most
+                    famous cellular automaton is <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
+                        target="_blank">Conway's Game of Life</a> which you can experiment with <a
+                        href="https://justingolden.me/game-of-life" target="_blank">here</a>. Cellular automata can even
+                    be used to <a href="http://justingolden.me/map-generator/" target="_blank">generate maps or terrain
+                        in video games</a>. See more applications on <a
+                        href="https://en.wikipedia.org/wiki/Cellular_automaton#Applications"
+                        target="_blank">Wikipedia</a>.</p>
+            </details>
+            <p><b>Using this Website</b></p>
+            <details>
+                <summary>How can I copy the cellular automata image?</summary>
+                <p>Right click it > "Copy image"</p>
+            </details>
+            <details>
+                <summary>What does the "Edges" option do?</summary>
+                <p>It allows you to change the behavior of the left-most and right-most squares (whether they wrap back
+                    around to the other side, or assume their non-existent neighbor is always white or always black.</p>
+            </details>
+            <details>
+                <summary>I have another question</summary>
+                <p>Feel free to email me at <a href="mailto:contact@justingolden.me"
+                        target="_blank">contact@justingolden.me</a>.</p>
+            </details>
+            <p></p>
+            <h3>About</h3>
+            <hr>
+            <p>made by <a href="https://justingolden.me" target="_blank">Justin Golden</a></p>
+            <small>
+                <p><a href="https://github.com/justingolden21/cellular-automata" target="_blank">GitHub repository</a>
+                </p>
+            </small>
+            <small>
+                <p>also check out my playground for <a href="https://justingolden.me/game-of-life"
+                        target="_blank">Conway's Game of Life</a></p>
+            </small>
+            <small>
+                <p>or check out my <a href="http://justingolden.me/map-generator/" target="_blank">map generator</a>
+                    made by using 2d cellular automata</p>
+            </small>
+            <small>
+                <p>Wolfram's classifications from <a href="https://arxiv.org/pdf/1306.5577.pdf"
+                        target="_blank">arxiv.org</a>, patterns from <a href="https://www.heropatterns.com"
+                        target="_blank">heropatterns.com</a></p>
+            </small>
+            <br><br><br><br>
+        </div>
+    </div>
 
-<div id="loading-div">
-	<div class="loader"></div>
-</div>
+    <div id="loading-div">
+        <div class="loader"></div>
+    </div>
 
 </body>
+
 </html>
