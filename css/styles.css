@@ -33,8 +33,7 @@ a:hover {
 	text-decoration: underline;
 }
 hr {
-	background-color: black;
-	border: 1px solid black;
+	border: 1px solid #eee;
 	width: 60%;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
