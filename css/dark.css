@@ -6,10 +6,11 @@ hr {
 	background-color: white;
 	border-color: white;
 }
-input[type=checkbox]:checked {
+input[type='checkbox']:checked {
 	background: url(../img/check-white.svg) no-repeat center center;
 }
-button, select {
+button,
+select {
 	color: white;
 	border-color: white;
 	background-color: black;
@@ -18,7 +19,7 @@ button:hover {
 	background-color: white;
 	color: black;
 }
-input[type=checkbox] {
+input[type='checkbox'] {
 	border-color: white;
 }
 canvas {

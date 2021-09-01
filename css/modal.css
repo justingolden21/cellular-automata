@@ -28,11 +28,18 @@
 }
 
 @keyframes animateTop {
-	from {top: -240px; opacity: 0}
-	to {top: 0; opacity: 1}
+	from {
+		top: -240px;
+		opacity: 0;
+	}
+	to {
+		top: 0;
+		opacity: 1;
+	}
 }
 
-#about-modal-btn, #settings-modal-btn {
+#about-modal-btn,
+#settings-modal-btn {
 	position: absolute;
 	top: 0;
 	margin: 0.5rem;
