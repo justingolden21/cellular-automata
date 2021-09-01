@@ -15,7 +15,7 @@ const assets = [
 	'/img/rule39.png',
 	'/img/check.svg',
 	'/img/check-white.svg',
-	'https://code.jquery.com/jquery-3.5.1.slim.min.js',
+	'js/lib/umbrella.min.js',
 ];
 
 // install event
