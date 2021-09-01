@@ -8,39 +8,35 @@ if ('serviceWorker' in navigator) {
 let SQ_SIZE;
 let animationInterval;
 
-$(() => {
+window.onload = () => {
 	// url params, copying, and links
 
 	let url = new URL(window.location.href);
 	let ca = url.searchParams.get('ca');
 	ca = verify(ca, 0, 255, -1);
 	if (ca != -1) {
-		$('#rule-num-input').val(ca);
+		u('#rule-num-input').val(ca);
 	}
 
-	$('#copied-span').css('display', 'none');
+	u('#copied-span').css('display', 'none');
 	let copiedTimeout;
 
-	$('#copy-link-btn').click(() => {
-		let tmp = $('<input type="text">').appendTo(document.body);
-		tmp.val(window.location.href);
-		tmp.select();
-		document.execCommand('copy');
-		tmp.remove();
+	u('#copy-link-btn').on('click', () => {
+		copyText(window.location.href);
 
-		$('#copied-span').css('display', '');
+		u('#copied-span').css('display', '');
 		clearTimeout(copiedTimeout);
 		copiedTimeout = setTimeout(
-			() => $('#copied-span').css('display', 'none'),
+			() => u('#copied-span').css('display', 'none'),
 			2500
 		);
 	});
-	$('#link-btn').click(() => {
-		if ($('#link-btn').html().indexOf('Unlink Rule Number') != -1) {
-			$('#link-btn').html('Link Rule Number');
+	u('#link-btn').on('click', () => {
+		if (u('#link-btn').html().indexOf('Unlink Rule Number') != -1) {
+			u('#link-btn').html('Link Rule Number');
 			window.history.replaceState(null, null, window.location.pathname); // remove url param
 		} else {
-			$('#link-btn').html('Unlink Rule Number');
+			u('#link-btn').html('Unlink Rule Number');
 			history.replaceState({}, '', '?ca=' + getVal('rule-num-input')); // set url param
 		}
 	});
@@ -50,7 +46,7 @@ $(() => {
 	function redraw() {
 		let num = getVal('rule-num-input');
 
-		if ($('#link-btn').html().indexOf('Unlink Rule Number') != -1) {
+		if (u('#link-btn').html().indexOf('Unlink Rule Number') != -1) {
 			history.replaceState({}, '', '?ca=' + num); // set url param
 		}
 
@@ -59,44 +55,45 @@ $(() => {
 		CELLULAR_HEIGHT = STEPS + 1;
 		SQ_SIZE = getVal('size-input');
 
-		if (SQ_SIZE == 1 && $('#grid-checkbox').is(':checked')) {
+		if (SQ_SIZE == 1 && u('#grid-checkbox').is(':checked')) {
 			SQ_SIZE = 2;
-			$('#size-input').val(2);
+			u('#size-input').val(2);
 		}
 
-		$('#display').html('');
+		u('#display').html('');
 		drawRuleDisplay(num);
 		drawCellularDisplay(num);
 		document.title = `Cellular Automata - Rule ${num}`;
 	}
 
-	$('input:not(#dark-checkbox), #edge-select').change(() => {
+	u('input:not(#dark-checkbox), #edge-select').on('change', () => {
 		handleLoading(redraw);
 	});
-	$('#rule-num-input').select().change();
+	u('#rule-num-input').first().select();
+	u('#rule-num-input').trigger('change');
 
 	// misc btn listeners
 
-	$('#random-btn').click(() =>
-		$('#rule-num-input').val(random(0, 255)).change()
+	u('#random-btn').on('click', () =>
+		u('#rule-num-input').val(random(0, 255)).trigger('change')
 	);
 
-	$('#dark-checkbox').change(() => {
-		$('#dark-css').attr(
+	u('#dark-checkbox').on('change', () => {
+		u('#dark-css').attr(
 			'href',
-			$('#dark-checkbox').is(':checked') ? 'css/dark.css' : ''
+			u('#dark-checkbox').is(':checked') ? 'css/dark.css' : ''
 		);
-		$('#background-select').change();
+		u('#background-select').trigger('change');
 	});
 
-	$('#download-img-btn').click(() => {
+	u('#download-img-btn').on('click', () => {
 		let link = document.createElement('a');
-		link.download = `Rule ${$('#rule-num').html()}.png`;
+		link.download = `Rule ${u('#rule-num').html()}.png`;
 		link.href = document.getElementById('cellular-canvas').toDataURL();
 		link.click();
 	});
 
-	$('#fullscreen-canvas-btn').click(() => {
+	u('#fullscreen-canvas-btn').on('click', () => {
 		let elm = document.getElementById('cellular-canvas');
 		if (elm.requestFullscreen) {
 			elm.requestFullscreen();
@@ -107,33 +104,33 @@ $(() => {
 		}
 	});
 
-	$('#all-cellular-btn').click(() => {
+	u('#all-cellular-btn').on('click', () => {
 		handleLoading(openPageWithAll);
 	});
 
 	// raw data
 
-	$('#raw-data-btn').click(() => {
-		if ($('#raw-data-btn').html().indexOf('Show') != -1) {
-			$('#raw-data-btn').html('Hide Raw Data');
-			$('#raw-data').css('display', 'block');
-			$('#raw-data')[0].scrollIntoView();
-			$('#copy-raw-data-btn').css('display', 'inline-block');
-			$('#download-raw-data-btn').css('display', 'inline-block');
+	u('#raw-data-btn').on('click', () => {
+		if (u('#raw-data-btn').html().indexOf('Show') != -1) {
+			u('#raw-data-btn').html('Hide Raw Data');
+			u('#raw-data').css('display', 'block');
+			u('#raw-data').first().scrollIntoView();
+			u('#copy-raw-data-btn').css('display', 'inline-block');
+			u('#download-raw-data-btn').css('display', 'inline-block');
 		} else {
-			$('#raw-data-btn').html('Show Raw Data');
-			$('#raw-data').css('display', 'none');
-			$('#copy-raw-data-btn').css('display', 'none');
-			$('#download-raw-data-btn').css('display', 'none');
+			u('#raw-data-btn').html('Show Raw Data');
+			u('#raw-data').css('display', 'none');
+			u('#copy-raw-data-btn').css('display', 'none');
+			u('#download-raw-data-btn').css('display', 'none');
 		}
 	});
 
-	$('#copy-raw-data-btn').click(() => {
-		$('#raw-data').select();
+	u('#copy-raw-data-btn').on('click', () => {
+		u('#raw-data').first().select();
 		document.execCommand('copy');
 	});
-	$('#download-raw-data-btn').click(() => {
-		downloadFile($('#raw-data').val(), `rule ${$('#rule-num').html()}`);
+	u('#download-raw-data-btn').on('click', () => {
+		downloadFile(u('#raw-data').val(), `rule ${u('#rule-num').html()}`);
 	});
 
 	// one details open at a time
@@ -150,12 +147,12 @@ $(() => {
 			});
 		});
 	});
-});
+};
 
 // utility functions
 
 function getVal(elmID) {
-	let elm = $(`#${elmID}`);
+	let elm = u(`#${elmID}`);
 	let val = verify(
 		elm.val(),
 		elm.attr('min'),
@@ -190,9 +187,9 @@ function downloadFile(str, fileName) {
 }
 
 function handleLoading(func) {
-	$('#loading-div').show();
+	u('#loading-div').css('display', '');
 	setTimeout(func, 10);
-	setTimeout(() => $('#loading-div').hide(), 10);
+	setTimeout(() => u('#loading-div').css('display', 'none'), 10);
 }
 
 function openPageWithAll() {
@@ -201,7 +198,19 @@ function openPageWithAll() {
 	for (let ruleNum = 0; ruleNum < 256; ruleNum++) {
 		drawCellularDisplay(
 			ruleNum,
-			$(newWindow.document.getElementById('display'))
+			u(newWindow.document.getElementById('display'))
 		);
 	}
+}
+
+function copyText(txt) {
+	navigator.clipboard.writeText(txt).then(
+		function () {
+			u('#copied-span').html('Copied!');
+		},
+		function (err) {
+			u('#copied-span').html('Error copying to clipboard');
+			console.error('Could not copy text: ', err);
+		}
+	);
 }

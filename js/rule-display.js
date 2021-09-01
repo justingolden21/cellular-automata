@@ -1,9 +1,9 @@
 function drawRuleDisplay(ruleNum) {
 	let ruleArray = getRuleArr(ruleNum);
-	$('#rule-num').html(ruleNum);
+	u('#rule-num').html(ruleNum);
 
 	for (let i = 0, j = 7; i < 8; i++, j--) {
-		$('#display').append(
+		u('#display').append(
 			getRuleSectionDisplay([
 				Math.floor(j / 4) % 2,
 				Math.floor(j / 2) % 2,
@@ -12,9 +12,9 @@ function drawRuleDisplay(ruleNum) {
 			])
 		);
 	}
-	$('#display').append(`<p>${ruleArray.join('')}<sub>2</sub></p>`);
+	u('#display').append(`<p>${ruleArray.join('')}<sub>2</sub></p>`);
 	let classification = getRuleClassification(ruleNum);
-	$('#display').append(
+	u('#display').append(
 		`<p>Class ${classification} &mdash; ${getClassificationDescription(
 			classification
 		)}</p>`
@@ -25,16 +25,16 @@ function drawRuleDisplay(ruleNum) {
 	if (equivalentRules.length > 0) {
 		let ruleLinks = '';
 		for (let equRule of equivalentRules) {
-			ruleLinks += `<a onclick="$('#rule-num-input').val(${equRule}).change()">${equRule}</a>, `;
+			ruleLinks += `<a onclick="u('#rule-num-input').val(${equRule}).trigger('change')">${equRule}</a>, `;
 		}
 		ruleLinks = ruleLinks.substring(0, ruleLinks.length - 2); // remove last comma
-		$('#display').append(
+		u('#display').append(
 			`<p>Equivalent to rule${
 				equivalentRules.length > 1 ? 's' : ''
 			} ${ruleLinks} </p>`
 		);
 	}
-	$('#display').append('<hr>');
+	u('#display').append('<hr>');
 }
 
 const COORDS = [
@@ -60,7 +60,7 @@ function getRuleSectionDisplay(arr) {
 	ctx.lineWidth = 1;
 	ctx.strokeStyle = '#66c';
 
-	const DO_STROKE = $('#grid-checkbox').is(':checked');
+	const DO_STROKE = u('#grid-checkbox').is(':checked');
 
 	for (let i = 0; i < 4; i++) {
 		ctx.fillStyle = arr[i] == 1 ? 'black' : 'white';

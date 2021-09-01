@@ -42,10 +42,10 @@ const PATTERNS = {
 };
 
 function setPattern(name) {
-	const str = $('#dark-checkbox').is(':checked')
+	const str = u('#dark-checkbox').is(':checked')
 		? "fill='%23ffffff' fill-opacity='0.2' " + PATTERNS[name]
 		: "fill='%23000000' fill-opacity='0.1' " + PATTERNS[name];
-	$('body').css(
+	u('body').css(
 		'background-image',
 		name == 'none'
 			? ''
@@ -53,7 +53,7 @@ function setPattern(name) {
 	);
 }
 
-$(() => {
+window.addEventListener('load', () => {
 	const capitalize = (str) => str.charAt(0).toUpperCase() + str.substring(1);
 	let options = '';
 	for (pattern of Object.keys(PATTERNS)) {
@@ -61,15 +61,15 @@ $(() => {
 			pattern.replace(/_/g, ' ')
 		)}</option>`;
 	}
-	$('#background-select').html(options);
+	u('#background-select').html(options);
 
-	$('#background-select').change(() => {
-		setPattern($('#background-select').val());
+	u('#background-select').on('change', () => {
+		setPattern(u('#background-select').val());
 	});
 
-	$('#background-select option[value="diagonal_lines"]').prop(
+	u('#background-select option[value="diagonal_lines"]').attr(
 		'selected',
 		true
 	);
-	$('#background-select').change();
+	u('#background-select').trigger('change');
 });

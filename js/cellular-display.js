@@ -1,15 +1,15 @@
 let CELLULAR_WIDTH;
 let CELLULAR_HEIGHT;
 
-function drawCellularDisplay(ruleNum, display = $('#display')) {
+function drawCellularDisplay(ruleNum, display = u('#display')) {
 	console.time('cellular draw');
 
 	let nextRow;
 	let ruleArray = getRuleArr(ruleNum);
 
-	const RANDOM_INITIAL = $('#initial-checkbox').is(':checked');
-	const DO_STROKE = $('#grid-checkbox').is(':checked');
-	const WRAP_MODE = $('#edge-select').val();
+	const RANDOM_INITIAL = u('#initial-checkbox').is(':checked');
+	const DO_STROKE = u('#grid-checkbox').is(':checked');
+	const WRAP_MODE = u('#edge-select').val();
 
 	if (!RANDOM_INITIAL) {
 		// init row at all 0s with a 1 in center
@@ -42,7 +42,7 @@ function drawCellularDisplay(ruleNum, display = $('#display')) {
 	}
 	display.append(canvas);
 
-	$('#raw-data').val(rows.join('\n'));
+	u('#raw-data').val(rows.join('\n'));
 
 	console.timeEnd('cellular draw');
 }

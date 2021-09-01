@@ -15,6 +15,12 @@ more settings for initial conditions?
 stroke color settings and other visual settings?
 print button for canvas (with options?)
 display a logic ciruit, using a k-map, for the cellular automata
+make tests js script to run tests to ensure all relevant code works before push
+save display settings to local storage, btn to clear/reset
+
+css:
+new lines for checboxes settings
+add padding and hover bg color to details
 
 bugs:
 dark mode doesn't work in PWA offline

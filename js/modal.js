@@ -1,4 +1,4 @@
-$(() => {
+window.addEventListener('load', () => {
 	let modals = document.getElementsByClassName('modal');
 	let modalBtns = document.getElementsByClassName('modal-btn');
 	let closeBtns = document.getElementsByClassName('close');
