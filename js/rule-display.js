@@ -35,7 +35,7 @@ function drawRuleDisplay(ruleNum) {
 		);
 	}
     console.log(ruleNum)
-    if(ruleNum == 30) u('#display').append('<p><b>Solve a Rule 30 problem to win $10,000: <a target="_blank" href="https://www.rule30prize.org/">Rule 30 Prize</a></b></p>');
+    if(ruleNum == 30) u('#display').append('<p><a target="_blank" href="https://www.rule30prize.org/">Rule 30 Prize</a></p>');
 	u('#display').append('<hr>');
 }
 
