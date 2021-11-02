@@ -34,6 +34,8 @@ function drawRuleDisplay(ruleNum) {
 			} ${ruleLinks} </p>`
 		);
 	}
+    console.log(ruleNum)
+    if(ruleNum == 30) u('#display').append('<p><b>Solve a Rule 30 problem to win $10,000: <a target="_blank" href="https://www.rule30prize.org/">Rule 30 Prize</a></b></p>');
 	u('#display').append('<hr>');
 }
 
